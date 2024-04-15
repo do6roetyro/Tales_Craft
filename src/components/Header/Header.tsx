@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import Logo from "./Logo";
 import Modal from "../Modal/Modal";
 import LoginForm from "./LoginForm";
-import RegistrationForm from "./RegistrationForm";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
@@ -12,14 +11,18 @@ import { Link } from "react-router-dom";
 interface HeaderProps {
   loginButtonText: string;
   registrationButtonText: string;
+  aboutButtonText: string;
+  homeButtonText: string;
 }
 
 const Header: React.FC<HeaderProps> = ({
   loginButtonText,
   registrationButtonText,
+  aboutButtonText,
+  homeButtonText,
 }) => {
   const [isLoginModalOpen, setLoginModalOpen] = useState(false);
-  const [isRegistrationModalOpen, setRegistrationModalOpen] = useState(false);
+  // const [isRegistrationModalOpen, setRegistrationModalOpen] = useState(false);
   const [isDrawerOpen, setDrawerOpen] = useState(false);
 
   const toggleDrawer =
@@ -37,8 +40,8 @@ const Header: React.FC<HeaderProps> = ({
   const openLoginModal = () => setLoginModalOpen(true);
   const closeLoginModal = () => setLoginModalOpen(false);
 
-  const openRegistrationModal = () => setRegistrationModalOpen(true);
-  const closeRegistrationModal = () => setRegistrationModalOpen(false);
+  // const openRegistrationModal = () => setRegistrationModalOpen(true);
+  // const closeRegistrationModal = () => setRegistrationModalOpen(false);
 
   return (
     <header className="flex justify-between items-center p-4 bg-green-600 text-white">
@@ -58,23 +61,33 @@ const Header: React.FC<HeaderProps> = ({
           onKeyDown={toggleDrawer(false)}
         >
           <nav className="flex flex-col items-start  p-4">
+            <Link
+              to="/"
+              className="mt-4 text-lg text-black hover:text-gray-400"
+            >
+              <button className="mt-4 text-lg text-black hover:text-gray-400">
+                {homeButtonText}
+              </button>
+            </Link>
             <button
               onClick={openLoginModal}
               className="mt-4 text-lg text-black hover:text-gray-400"
             >
-              {loginButtonText}{" "}
+              {loginButtonText}
             </button>
-            <button
-              onClick={openRegistrationModal}
+            <Link
+              to="/registration"
               className="mt-4 text-lg text-black hover:text-gray-400"
             >
-              {registrationButtonText}
-            </button>
+              <button className=" text-lg text-black hover:text-gray-400">
+                {registrationButtonText}
+              </button>
+            </Link>
             <Link
               to="/about"
               className="mt-4 text-lg text-black hover:text-gray-400"
             >
-              О нас
+              {aboutButtonText}
             </Link>
           </nav>
         </div>
@@ -82,9 +95,9 @@ const Header: React.FC<HeaderProps> = ({
       <Modal isOpen={isLoginModalOpen} onClose={closeLoginModal}>
         <LoginForm />
       </Modal>
-      <Modal isOpen={isRegistrationModalOpen} onClose={closeRegistrationModal}>
+      {/* <Modal isOpen={isRegistrationModalOpen} onClose={closeRegistrationModal}>
         <RegistrationForm />
-      </Modal>
+      </Modal> */}
     </header>
   );
 };

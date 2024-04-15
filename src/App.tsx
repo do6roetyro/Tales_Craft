@@ -1,17 +1,24 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Header from "./components/Header/Header";
-import HomePage from "./components/Pages/HomePage";
-import AboutPage from "./components/Pages/AboutPage";
+import HomePage from "./pages/HomePage";
+import AboutPage from "./pages/AboutPage";
+import RegistrationPage from "./pages/RegistrationPage";
 import "./App.css";
 
 function App() {
   return (
     <React.Fragment>
-      <Header loginButtonText="Войти" registrationButtonText="Регистрация" />
+      <Header
+        loginButtonText="Войти"
+        registrationButtonText="Регистрация"
+        aboutButtonText="О нас"
+        homeButtonText="Главная"
+      />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
+        <Route path="/registration" element={<RegistrationPage />} />
       </Routes>
     </React.Fragment>
   );
