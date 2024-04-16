@@ -32,3 +32,10 @@ img {
 *::after {
   box-sizing: border-box;
 }
+
+/* Перебиваю стиль MUI у бургер-меню для адаптивности */
+@media (min-width: 768px) {
+  .hide-on-md {
+    display: none !important;
+  }
+}
