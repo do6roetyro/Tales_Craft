@@ -3,6 +3,8 @@ import React from "react";
 
 const LoginForm: React.FC = () => {
   return (
+    <React.Fragment>
+    <h2 className="text-black pb-2 relative top-[-20px]">Введите данные пользователя:</h2>
     <form className="flex flex-col gap-4">
       <input
         type="text"
@@ -27,6 +29,7 @@ const LoginForm: React.FC = () => {
         Войти
       </button>
     </form>
+    </React.Fragment>
   );
 };
 

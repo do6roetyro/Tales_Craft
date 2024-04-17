@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Logo from "./Logo";
 import Modal from "../Modal/Modal";
-import LoginForm from "./LoginForm";
+import LoginForm from "../Forms/LoginForm/LoginForm";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
