@@ -33,7 +33,7 @@ const CreateTaleFormPage: React.FC = () => {
   };
 
   return (
-   <div>
+   <section>
     <h2 className="hidden">Cоздание сказки.</h2>
     <p className="p-4 text-center">Сделайте первый шаг навстречу сказочному путешествию:</p>
     <CreateTaleForm
@@ -44,7 +44,7 @@ const CreateTaleFormPage: React.FC = () => {
         heroes={heroes}
         environments={environments}
     />
-   </div>
+   </section>
   );
 };
 

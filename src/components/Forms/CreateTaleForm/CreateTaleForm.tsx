@@ -1,6 +1,7 @@
 import React from "react";
 import Checkbox from "@mui/material/Checkbox";
 import FormControlLabel from "@mui/material/FormControlLabel";
+import Button from "@mui/material/Button";
 
 interface FormData {
   theme: string;
@@ -122,6 +123,7 @@ const CreateTaleForm: React.FC<CreateTaleFormProps> = ({
       </div>
       <div className="w-full max-w-md">
         <label aria-label="Добавить иллюстрации к сказке">
+          {/* TODO Изменить цвет чекбокса */}
           <FormControlLabel
             control={
               <Checkbox
@@ -135,12 +137,14 @@ const CreateTaleForm: React.FC<CreateTaleFormProps> = ({
           />
         </label>
       </div>
-      <button
+      <Button
         type="submit"
-        className="w-full max-w-xs p-2 border rounded bg-green-600 text-white"
+        variant="contained"
+        color="primary"
+        className="w-full max-w-52 mx-auto mt-4"
       >
         Создать сказку
-      </button>
+      </Button>
     </form>
   );
 };

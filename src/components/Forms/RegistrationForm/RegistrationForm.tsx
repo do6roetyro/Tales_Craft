@@ -5,6 +5,7 @@ import {
   validateUsername,
   validateConfirmPassword,
 } from "../../../utils/registrationValidate";
+import Button from "@mui/material/Button";
 
 interface RegistrationFormProps {
   onSubmit: (formData: any) => void;
@@ -53,69 +54,83 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({ onSubmit }) => {
   };
 
   return (
-    <form className="flex flex-col gap-4 p-4 pt-8" onSubmit={handleSubmit}>
-      <input
-        type="text"
-        id="username"
-        name="username"
-        placeholder="Имя пользователя"
-        className="p-2 border rounded text-black"
-        autoComplete="off"
-        value={formData.username}
-        onChange={handleChange}
-      />
-      {formErrors.username && (
-        <div className="text-red-500 text-sm">{formErrors.username}</div>
-      )}
+    <form
+      className="flex flex-col gap-4 p-4 items-center"
+      onSubmit={handleSubmit}
+    >
+      <div className="w-full max-w-md flex flex-col items-center gap-4">
+        <label className="w-full">
+          <input
+            type="text"
+            id="username"
+            name="username"
+            placeholder="Имя пользователя"
+            className="w-full p-2 border rounded text-black"
+            autoComplete="off"
+            value={formData.username}
+            onChange={handleChange}
+          />
+        </label>
+        {formErrors.username && (
+          <div className="text-red-500 text-sm">{formErrors.username}</div>
+        )}
+        <label className="w-full">
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Email"
+            className="w-full p-2 border rounded text-black"
+            autoComplete="off"
+            value={formData.email}
+            onChange={handleChange}
+          />
+        </label>
+        {formErrors.email && (
+          <div className="text-red-500 text-sm">{formErrors.email}</div>
+        )}
+        <label className="w-full">
+          <input
+            type="password"
+            id="new-password"
+            name="password"
+            placeholder="Пароль"
+            className="w-full p-2 border rounded text-black"
+            autoComplete="off"
+            value={formData.password}
+            onChange={handleChange}
+          />
+        </label>
+        {formErrors.password && (
+          <div className="text-red-500 text-sm">{formErrors.password}</div>
+        )}
+        <label className="w-full">
+          <input
+            type="password"
+            id="confirm-password"
+            name="confirmPassword"
+            placeholder="Подтверждение пароля"
+            className="w-full p-2 border rounded text-black"
+            autoComplete="off"
+            value={formData.confirmPassword}
+            onChange={handleChange}
+          />
+        </label>
+        {formErrors.confirmPassword && (
+          <div className="text-red-500 text-sm">
+            {formErrors.confirmPassword}
+          </div>
+        )}
 
-      <input
-        type="email"
-        id="email"
-        name="email"
-        placeholder="Email"
-        className="p-2 border rounded text-black"
-        autoComplete="off"
-        value={formData.email}
-        onChange={handleChange}
-      />
-      {formErrors.email && (
-        <div className="text-red-500 text-sm">{formErrors.email}</div>
-      )}
-
-      <input
-        type="password"
-        id="new-password"
-        name="password"
-        placeholder="Пароль"
-        className="p-2 border rounded text-black"
-        autoComplete="off"
-        value={formData.password}
-        onChange={handleChange}
-      />
-      {formErrors.password && (
-        <div className="text-red-500 text-sm">{formErrors.password}</div>
-      )}
-
-      <input
-        type="password"
-        id="confirm-password"
-        name="confirmPassword"
-        placeholder="Подтверждение пароля"
-        className="p-2 border rounded text-black"
-        autoComplete="off"
-        value={formData.confirmPassword}
-        onChange={handleChange}
-      />
-      {formErrors.confirmPassword && (
-        <div className="text-red-500 text-sm">{formErrors.confirmPassword}</div>
-      )}
-
-      <button
-        type="submit"
-        className="p-2 border rounded bg-green-600 text-white"
-      >
-        Зарегистрироваться
-      </button>
+        <Button
+          type="submit"
+          variant="contained"
+          color="primary"
+          className="w-full max-w-52 mx-auto mt-4"
+        >
+          Зарегистрироваться
+        </Button>
+      </div>
     </form>
   );
 };

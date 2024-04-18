@@ -6,6 +6,7 @@ interface NavigationProps {
   loginButtonText: string;
   registrationButtonText: string;
   aboutButtonText: string;
+  createTaleButtonText: string;
   onLoginClick: () => void;
   vertical?: boolean;
 }
@@ -15,6 +16,7 @@ const Navigation: React.FC<NavigationProps> = ({
   loginButtonText,
   registrationButtonText,
   aboutButtonText,
+  createTaleButtonText,
   onLoginClick,
   vertical = false,
 }) => {
@@ -35,6 +37,9 @@ const Navigation: React.FC<NavigationProps> = ({
       </Link>
       <Link to="/about" className="text-lg hover:text-gray-300">
         {aboutButtonText}
+      </Link>
+      <Link to="/create" className="text-lg hover:text-gray-300">
+        {createTaleButtonText}
       </Link>
     </nav>
   );

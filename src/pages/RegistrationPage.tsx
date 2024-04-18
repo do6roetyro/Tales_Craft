@@ -8,10 +8,10 @@ const RegistrationPage: React.FC = () => {
   };
 
   return (
-    <div>
-      <h2>Регистрация пользователя</h2>
+    <section>
+      <h2 className="p-4 pt-8 text-center">Регистрация пользователя</h2>
       <RegistrationForm onSubmit={handleFormSubmit} />
-    </div>
+    </section>
   );
 };
 

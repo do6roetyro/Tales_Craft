@@ -13,6 +13,7 @@ interface HeaderProps {
   registrationButtonText: string;
   aboutButtonText: string;
   homeButtonText: string;
+  createTaleButtonText: string;
 }
 
 const Header: React.FC<HeaderProps> = ({
@@ -20,6 +21,7 @@ const Header: React.FC<HeaderProps> = ({
   registrationButtonText,
   aboutButtonText,
   homeButtonText,
+  createTaleButtonText,
 }) => {
   const [isLoginModalOpen, setLoginModalOpen] = useState(false);
   const [isDrawerOpen, setDrawerOpen] = useState(false);
@@ -57,6 +59,7 @@ const Header: React.FC<HeaderProps> = ({
         loginButtonText={loginButtonText}
         registrationButtonText={registrationButtonText}
         aboutButtonText={aboutButtonText}
+        createTaleButtonText={createTaleButtonText}
         onLoginClick={openLoginModal}
       />
       <Drawer anchor="right" open={isDrawerOpen} onClose={toggleDrawer(false)}>
@@ -71,6 +74,7 @@ const Header: React.FC<HeaderProps> = ({
             loginButtonText={loginButtonText}
             registrationButtonText={registrationButtonText}
             aboutButtonText={aboutButtonText}
+            createTaleButtonText={createTaleButtonText}
             onLoginClick={openLoginModal}
             vertical={true}
           />
