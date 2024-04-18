@@ -26,13 +26,13 @@ const Modal: React.FC<ModalProps> = ({ children, isOpen, onClose }) => {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
-      <div className="bg-white p-4 rounded relative w-11/12 md:w-2/3 lg:w-1/2 xl:w-1/3 2xl:w-1/4">
+    <div className="modal">
+      <div className="modal__container">
         <button
           onClick={onClose}
-          className="relative m-2 ml-auto mt-0 block text-black text-xl"
+          className="modal__button modal__button--close"
         >
-          <span className="sr-only">Закрыть</span>
+          <span className="visually-hidden">Закрыть</span>
           &#x2715;
         </button>
         {children}

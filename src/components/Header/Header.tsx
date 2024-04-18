@@ -42,14 +42,14 @@ const Header: React.FC<HeaderProps> = ({
   const closeLoginModal = () => setLoginModalOpen(false);
 
   return (
-    <header className="flex justify-between items-center p-4 bg-green-600 text-white">
+    <header className="main-header">
       <Logo />
       <IconButton
         edge="start"
         color="inherit"
         aria-label="меню"
         onClick={toggleDrawer(true)}
-        className=" hide-on-md"
+        className="main-header__menu-button hide-on-md"
       >
         {isDrawerOpen ? <CloseIcon /> : <MenuIcon />}
       </IconButton>

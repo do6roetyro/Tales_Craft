@@ -6,7 +6,7 @@ import AboutPage from "./pages/AboutPage";
 import RegistrationPage from "./pages/RegistrationPage";
 import CreateTaleFormPage from "./pages/CreateTaleFormPage";
 import "./App.css";
-import "./styles/App.scss";
+import "./assets/styles/index.scss";
 
 function App() {
   return (

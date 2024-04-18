@@ -1,0 +1,36 @@
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #4caf50;
+    color: white;
+}
+
+.main-header__logo-link {
+    display: flex;
+    align-items: center;
+    width: 4rem;
+    height: 4rem;
+}
+
+.main-header__logo-image {
+    object-fit: cover;
+    width: 6rem;
+    height: 6rem; 
+    transition: transform 300ms ease-in-out; 
+    transform: scale(1); 
+}
+
+.main-header__logo-image:hover,
+.main-header__logo-image:focus {
+    transform: scale(
+        1.1
+    ); 
+}
+
+.main-header__menu-button {
+    @media (min-width: 768px) {
+        display: none !important;
+    }
+}

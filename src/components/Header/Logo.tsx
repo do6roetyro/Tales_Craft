@@ -4,11 +4,11 @@ import { Link } from "react-router-dom";
 
 const Logo: React.FC = () => {
   return (
-    <Link to="/" className="flex items-center w-16 h-16">
+    <Link to="/" className="main-header__logo-link">
       <img
         src={logo}
         alt="Tales Craft"
-        className="object-cover w-24 h-24 transition duration-300 ease-in-out transform hover:scale-110 focus:scale-110"
+        className="main-header__logo-image"
         width={128}
         height={128}
       />

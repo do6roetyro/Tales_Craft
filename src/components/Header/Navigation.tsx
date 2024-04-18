@@ -21,25 +21,37 @@ const Navigation: React.FC<NavigationProps> = ({
   vertical = false,
 }) => {
   const navigationClass = vertical
-    ? "flex flex-col items-start p-4"
-    : "hidden md:flex items-center gap-8";
+    ? "main-nav--vertical"
+    : "main-nav--horizontal";
 
   return (
     <nav className={navigationClass}>
-      <Link to="/" className="text-lg hover:text-gray-300">
+      <Link to="/" className="text-lg hover:text-gray-300 main-nav__link link">
         {homeButtonText}
       </Link>
-      <button onClick={onLoginClick} className="text-lg hover:text-gray-300">
+      <button
+        onClick={onLoginClick}
+        className="text-lg hover:text-gray-300 main-nav__link main-nav__link--button button"
+      >
         {loginButtonText}
       </button>
-      <Link to="/registration" className="text-lg hover:text-gray-300">
+      <Link
+        to="/registration"
+        className="text-lg hover:text-gray-300 main-nav__link link"
+      >
         {registrationButtonText}
       </Link>
-      <Link to="/about" className="text-lg hover:text-gray-300">
-        {aboutButtonText}
-      </Link>
-      <Link to="/create" className="text-lg hover:text-gray-300">
+      <Link
+        to="/create"
+        className="text-lg hover:text-gray-300 main-nav__link link"
+      >
         {createTaleButtonText}
+      </Link>
+      <Link
+        to="/about"
+        className="text-lg hover:text-gray-300 main-nav__link link"
+      >
+        {aboutButtonText}
       </Link>
     </nav>
   );

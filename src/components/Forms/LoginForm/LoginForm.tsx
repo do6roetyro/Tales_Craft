@@ -1,35 +1,38 @@
 import React from "react";
+import Button from "@mui/material/Button";
 //TODO Уточнить какой action
 
 const LoginForm: React.FC = () => {
   return (
-    <React.Fragment>
-    <h2 className="text-black pb-2 relative top-[-20px]">Введите данные пользователя:</h2>
-    <form className="flex flex-col gap-4">
+    <div className="modal__login login">
+    <h2 className="login__title title">Введите данные пользователя:</h2>
+    <form className="login__form">
       <input
         type="text"
         id="login"
         name="login"
-        placeholder="Логин"
-        className="p-2 border rounded text-black"
+        placeholder="Введите логин"
+        className="login__input"
         autoComplete="off"
       />
       <input
         type="password"
         id="password"
         name="password"
-        placeholder="Пароль"
-        className="p-2 border rounded text-black"
+        placeholder="Введите пароль"
+        className="login__input"
         autoComplete="off"
       />
-      <button
-        type="submit"
-        className="p-2 border rounded bg-green-600 text-white"
-      >
-        Войти
-      </button>
+      <Button
+          type="submit"
+          variant="contained"
+          color="primary"
+          className="w-full max-w-52 mx-auto mt-4 login__button button"
+        >
+           Войти
+        </Button>
     </form>
-    </React.Fragment>
+    </div>
   );
 };
 
