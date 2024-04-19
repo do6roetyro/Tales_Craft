@@ -1,7 +1,7 @@
 // ТODO СДЕЛАТЬ СТИЛИ. ВАЛИДАЦИЮ.
 import React, { useState } from "react";
 import CreateTaleForm from "../components/Forms/CreateTaleForm/CreateTaleForm";
-import { themes, heroes, environments } from "../components/Forms/CreateTaleForm/datalistsForCreateTaleForm";
+// import { themes, heroes, environments } from "../components/Forms/CreateTaleForm/datalistsForCreateTaleForm";
 
 const CreateTaleFormPage: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -41,9 +41,9 @@ const CreateTaleFormPage: React.FC = () => {
         formData={formData}
         handleChange={handleChange}
         handleSubmit={handleSubmit}
-        themes={themes}
-        heroes={heroes}
-        environments={environments}
+        // themes={themes}
+        // heroes={heroes}
+        // environments={environments}
     />
     </div>
    </section>

@@ -43,11 +43,16 @@
 }
 
 .create-tale__input {
+    font-family: monospace;
     width: 100%;
     padding: 0.5rem;
     border: 1px solid;
     border-radius: 0.25rem;
     color: #000000;
+}
+
+.create-tale__checkbox + span {
+    font-family: variables.$font-ptsans;
 }
 
 .create-tale__error {

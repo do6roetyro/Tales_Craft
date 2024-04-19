@@ -20,77 +20,55 @@ interface CreateTaleFormProps {
     >
   ) => void;
   handleSubmit: (e: React.FormEvent) => void;
-  themes: string[];
-  heroes: string[];
-  environments: string[];
 }
 
 const CreateTaleForm: React.FC<CreateTaleFormProps> = ({
   formData,
   handleChange,
   handleSubmit,
-  themes,
-  heroes,
-  environments,
 }) => {
   return (
     <form onSubmit={handleSubmit} className="create-tale__form">
       <div className="create-tale__container">
         <label className="create-tale__label" aria-label="Основная тема">
           <span className="create-tale__description">Основная тема:</span>
-          <input
-            type="text"
-            list="themes"
+          <textarea
             id="theme"
             name="theme"
             value={formData.theme}
             onChange={handleChange}
-            placeholder="Выберите или напишите свою"
+            placeholder="Например, спасение королевства от дракона или путешествие на море."
+            rows={3}
             className="create-tale__input"
           />
-          <datalist id="themes">
-            {themes.map((theme, index) => (
-              <option key={index} value={theme} />
-            ))}
-          </datalist>
         </label>
       </div>
       <div className="create-tale__container">
         <label aria-label="Герои сказки">
           <span className="create-tale__description">Герои сказки:</span>
-          <input
-            type="text"
-            list="heroes"
+          <textarea
             id="heroes"
             name="heroes"
             value={formData.heroes}
             onChange={handleChange}
-            placeholder="Выберите или напишите своих"
+            placeholder="Например, волшебники или машинки или лесные звери."
+            rows={3}
             className="create-tale__input"
           />
-          <datalist id="heroes">
-            {heroes.map((hero, index) => (
-              <option key={index} value={hero} />
-            ))}
-          </datalist>
         </label>
       </div>
       <div className="create-tale__container">
         <label aria-label="Окружение">
           <span className="create-tale__description">Окружение:</span>
-          <input
-            list="environments"
+          <textarea
+            id="environment"
             name="environment"
             value={formData.environment}
             onChange={handleChange}
-            placeholder="Выберите или напишите свое"
+            placeholder="Например, дремучий лес или бабушкина дача или бескрайняя пустыня."
+            rows={3}
             className="create-tale__input"
           />
-          <datalist id="environments">
-            {environments.map((environment, index) => (
-              <option key={index} value={environment} />
-            ))}
-          </datalist>
         </label>
       </div>
       <div className="create-tale__container">
@@ -102,7 +80,7 @@ const CreateTaleForm: React.FC<CreateTaleFormProps> = ({
             id="age"
             value={formData.age}
             onChange={handleChange}
-            placeholder="Введите возраст"
+            placeholder="Введите возраст от 0 до 17 лет"
             className="create-tale__input"
           />
         </label>
@@ -116,13 +94,13 @@ const CreateTaleForm: React.FC<CreateTaleFormProps> = ({
             value={formData.additional}
             onChange={handleChange}
             placeholder="Любая дополнительная информация"
+            rows={3}
             className="create-tale__input"
           />
         </label>
       </div>
       <div className="create-tale__container">
         <label aria-label="Добавить иллюстрации к сказке">
-          {/* TODO Изменить цвет чекбокса */}
           <FormControlLabel
             control={
               <Checkbox
