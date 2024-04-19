@@ -1,0 +1,63 @@
+@use "../global/variables.scss";
+
+.registration {
+    padding: 1rem;
+
+    @media (min-width: variables.$screen-tablet) {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+}
+
+.registration__wrapper {
+    box-shadow: 0 0.25rem 0.4rem rgba(0, 0, 0, 0.4); 
+    backdrop-filter: blur(10px);
+    border-radius: 0.5rem; 
+}
+
+.registration__title {
+    padding: 1rem;
+    text-align: center;
+}
+
+.registration__form {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+    padding: 1rem;
+    align-items: center;
+}
+
+.registration__container {
+    width: 100%;
+    max-width: 28rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 1rem;
+}
+
+.registration__label {
+    width: 100%;
+}
+
+.registration__input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid;
+    border-radius: 0.25rem;
+    color: #000000;
+}
+
+.registration__error {
+    color: #f56565;
+    font-size: 0.875rem;
+}
+
+.registration__button {
+    width: 100%;
+    max-width: 13rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1rem;
+}

@@ -55,69 +55,69 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({ onSubmit }) => {
 
   return (
     <form
-      className="flex flex-col gap-4 p-4 items-center"
+      className="registration__form"
       onSubmit={handleSubmit}
     >
-      <div className="w-full max-w-md flex flex-col items-center gap-4">
-        <label className="w-full">
+      <div className="registration__container">
+        <label className="registration__label">
           <input
             type="text"
             id="username"
             name="username"
             placeholder="Имя пользователя"
-            className="w-full p-2 border rounded text-black"
+            className="registration__input"
             autoComplete="off"
             value={formData.username}
             onChange={handleChange}
           />
         </label>
         {formErrors.username && (
-          <div className="text-red-500 text-sm">{formErrors.username}</div>
+          <div className="registration__error">{formErrors.username}</div>
         )}
-        <label className="w-full">
+        <label className="registration__label">
           <input
             type="email"
             id="email"
             name="email"
             placeholder="Email"
-            className="w-full p-2 border rounded text-black"
+            className="registration__input"
             autoComplete="off"
             value={formData.email}
             onChange={handleChange}
           />
         </label>
         {formErrors.email && (
-          <div className="text-red-500 text-sm">{formErrors.email}</div>
+          <div className="registration__error">{formErrors.email}</div>
         )}
-        <label className="w-full">
+        <label className="registration__label">
           <input
             type="password"
             id="new-password"
             name="password"
             placeholder="Пароль"
-            className="w-full p-2 border rounded text-black"
+            className="registration__input"
             autoComplete="off"
             value={formData.password}
             onChange={handleChange}
           />
         </label>
         {formErrors.password && (
-          <div className="text-red-500 text-sm">{formErrors.password}</div>
+          <div className="registration__error">{formErrors.password}</div>
         )}
-        <label className="w-full">
+        <label className="registration__label">
           <input
             type="password"
             id="confirm-password"
             name="confirmPassword"
             placeholder="Подтверждение пароля"
-            className="w-full p-2 border rounded text-black"
+            className="registration__input"
             autoComplete="off"
             value={formData.confirmPassword}
             onChange={handleChange}
           />
         </label>
         {formErrors.confirmPassword && (
-          <div className="text-red-500 text-sm">
+          <div className="registration__error">
             {formErrors.confirmPassword}
           </div>
         )}
@@ -126,7 +126,7 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({ onSubmit }) => {
           type="submit"
           variant="contained"
           color="primary"
-          className="w-full max-w-52 mx-auto mt-4"
+          className="registration__button button"
         >
           Зарегистрироваться
         </Button>

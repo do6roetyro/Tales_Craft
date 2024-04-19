@@ -33,9 +33,10 @@ const CreateTaleFormPage: React.FC = () => {
   };
 
   return (
-   <section className="create">
-    <h2 className="hidden">Cоздание сказки.</h2>
-    <p className="p-4 text-center">Сделайте первый шаг навстречу сказочному путешествию:</p>
+   <section className="create-tale">
+    <div className="create-tale__wrapper">
+    <h2 className="visually-hidden">Cоздание сказки.</h2>
+    <p className="create-tale__title title">Сделайте первый шаг навстречу сказочному путешествию:</p>
     <CreateTaleForm
         formData={formData}
         handleChange={handleChange}
@@ -44,7 +45,9 @@ const CreateTaleFormPage: React.FC = () => {
         heroes={heroes}
         environments={environments}
     />
+    </div>
    </section>
+
   );
 };
 

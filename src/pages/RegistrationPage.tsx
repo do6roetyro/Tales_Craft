@@ -8,9 +8,11 @@ const RegistrationPage: React.FC = () => {
   };
 
   return (
-    <section>
-      <h2 className="p-4 pt-8 text-center">Регистрация пользователя</h2>
+    <section className="registration">
+      <div className="registration__wrapper">
+      <h2 className="registration__title title">Регистрация пользователя</h2>
       <RegistrationForm onSubmit={handleFormSubmit} />
+      </div>
     </section>
   );
 };

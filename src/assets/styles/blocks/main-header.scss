@@ -1,10 +1,16 @@
+@use "../global/variables.scss";
+
 .main-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1rem;
-    background-color: #4caf50;
-    color: white;
+    color: #ffffff;
+
+    @media (min-width: variables.$screen-tablet) {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
 }
 
 .main-header__logo-link {

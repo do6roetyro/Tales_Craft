@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 
 interface ModalProps {
   children: React.ReactNode;
@@ -7,6 +7,8 @@ interface ModalProps {
 }
 
 const Modal: React.FC<ModalProps> = ({ children, isOpen, onClose }) => {
+  const modalRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     const handleEsc = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
@@ -14,20 +16,25 @@ const Modal: React.FC<ModalProps> = ({ children, isOpen, onClose }) => {
       }
     };
 
-    if (isOpen) {
-      document.addEventListener("keydown", handleEsc);
-    }
-
+    document.addEventListener("keydown", handleEsc);
     return () => {
       document.removeEventListener("keydown", handleEsc);
     };
   }, [isOpen, onClose]);
 
+  const handleBackdropClick = (
+    event: React.MouseEvent<HTMLDivElement, MouseEvent>
+  ) => {
+    if (modalRef.current && event.target === modalRef.current.parentNode) {
+      onClose();
+    }
+  };
+
   if (!isOpen) return null;
 
   return (
-    <div className="modal">
-      <div className="modal__container">
+    <div className="modal" onClick={handleBackdropClick}>
+      <div ref={modalRef} className="modal__container">
         <button
           onClick={onClose}
           className="modal__button modal__button--close"

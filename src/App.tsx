@@ -5,7 +5,6 @@ import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
 import RegistrationPage from "./pages/RegistrationPage";
 import CreateTaleFormPage from "./pages/CreateTaleFormPage";
-import "./App.css";
 import "./assets/styles/index.scss";
 
 function App() {
@@ -27,7 +26,6 @@ function App() {
         </Routes>
       </main>
       <footer>
-
       </footer>
     </React.Fragment>
   );

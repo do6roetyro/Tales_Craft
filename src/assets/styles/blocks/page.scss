@@ -2,6 +2,7 @@
 
 .page {
     height: 100%;
+    background-color: #f2f2f2;
 }
 
 .page__body {
@@ -19,11 +20,14 @@
 
 .page__container {
     min-width: 320px;
+    max-width: 1440px;
     min-height: 100%;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
     background-color: #ffffff;
+    background-image: url("../../images/background_main.webp");
+    background-repeat: no-repeat;
 }
 
 /* Перебиваю стиль MUI у бургер-меню для адаптивности */
