@@ -128,4 +128,4 @@ const CreateTaleForm: React.FC<CreateTaleFormProps> = ({
   );
 };
 
-export default CreateTaleForm;
+export { CreateTaleForm }

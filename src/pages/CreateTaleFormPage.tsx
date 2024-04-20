@@ -1,7 +1,5 @@
-// ТODO СДЕЛАТЬ СТИЛИ. ВАЛИДАЦИЮ.
 import React, { useState } from "react";
-import CreateTaleForm from "../components/Forms/CreateTaleForm/CreateTaleForm";
-// import { themes, heroes, environments } from "../components/Forms/CreateTaleForm/datalistsForCreateTaleForm";
+import { CreateTaleForm } from "../components/Forms/CreateTaleForm/CreateTaleForm";
 
 const CreateTaleFormPage: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -33,21 +31,19 @@ const CreateTaleFormPage: React.FC = () => {
   };
 
   return (
-   <section className="create-tale">
-    <div className="create-tale__wrapper">
-    <h2 className="visually-hidden">Cоздание сказки.</h2>
-    <p className="create-tale__title title">Сделайте первый шаг навстречу сказочному путешествию:</p>
-    <CreateTaleForm
-        formData={formData}
-        handleChange={handleChange}
-        handleSubmit={handleSubmit}
-        // themes={themes}
-        // heroes={heroes}
-        // environments={environments}
-    />
-    </div>
-   </section>
-
+    <section className="create-tale">
+      <div className="create-tale__wrapper">
+        <h2 className="visually-hidden">Cоздание сказки.</h2>
+        <p className="create-tale__title title">
+          Сделайте первый шаг навстречу сказочному путешествию:
+        </p>
+        <CreateTaleForm
+          formData={formData}
+          handleChange={handleChange}
+          handleSubmit={handleSubmit}
+        />
+      </div>
+    </section>
   );
 };
 
