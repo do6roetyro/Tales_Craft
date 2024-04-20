@@ -1,5 +1,5 @@
 import React from "react";
-import { CreateTaleForm } from "../components/Forms/CreateTaleForm/CreateTaleForm";
+import CreateTaleForm from "../components/Forms/CreateTaleForm/CreateTaleForm";
 
 const CreateTaleFormPage: React.FC = () => {
   const handleFormSubmit = (formData: any) => {

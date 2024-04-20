@@ -48,7 +48,6 @@ const CreateTaleForm: React.FC<CreateTaleFormProps> = ({ onSubmit }) => {
       | HTMLInputElement
       | HTMLTextAreaElement
       | HTMLSelectElement;
-    let error = "";
 
     if (type === "checkbox") {
       setFormData({
@@ -56,31 +55,32 @@ const CreateTaleForm: React.FC<CreateTaleFormProps> = ({ onSubmit }) => {
         [name]: (event.target as HTMLInputElement).checked,
       });
     } else {
-      setFormData({
-        ...formData,
-        [name]: value,
-      });
-
-      if (name === "age") {
-        error = validateAge(value);
-      } else {
-        error = validateTextLength(value);
-      }
-
-      setFormErrors({
-        ...formErrors,
-        [name]: error,
-      });
+      setFormData({ ...formData, [name]: value });
+      setFormErrors({ ...formErrors, [name]: "" });
     }
   };
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
-    if (Object.values(formErrors).every((error) => error === "")) {
+
+    const errors = {
+      theme: validateTextLength(formData.theme),
+      heroes: validateTextLength(formData.heroes),
+      environment: validateTextLength(formData.environment),
+      age: validateAge(formData.age),
+      additional: validateTextLength(formData.additional),
+      illustrations: formData.illustrations,
+    };
+
+    setFormErrors(errors);
+
+    const noErrors = Object.values(errors)
+      .filter((error) => typeof error=== "string")
+      .every((error) => error === ""); 
+    if (noErrors) {
       onSubmit(formData);
     }
   };
-
   return (
     <form onSubmit={handleSubmit} className="create-tale__form">
       <div className="create-tale__container">
@@ -96,6 +96,9 @@ const CreateTaleForm: React.FC<CreateTaleFormProps> = ({ onSubmit }) => {
             className="create-tale__input"
           />
         </label>
+        {formErrors.theme && (
+          <div className="registration__error">{formErrors.theme}</div>
+        )}
       </div>
       <div className="create-tale__container">
         <label aria-label="Герои сказки">
@@ -110,6 +113,9 @@ const CreateTaleForm: React.FC<CreateTaleFormProps> = ({ onSubmit }) => {
             className="create-tale__input"
           />
         </label>
+        {formErrors.heroes && (
+          <div className="registration__error">{formErrors.heroes}</div>
+        )}
       </div>
       <div className="create-tale__container">
         <label aria-label="Окружение">
@@ -124,6 +130,9 @@ const CreateTaleForm: React.FC<CreateTaleFormProps> = ({ onSubmit }) => {
             className="create-tale__input"
           />
         </label>
+        {formErrors.environment && (
+          <div className="registration__error">{formErrors.environment}</div>
+        )}
       </div>
       <div className="create-tale__container">
         <label aria-label="Возраст ребенка">
@@ -138,6 +147,9 @@ const CreateTaleForm: React.FC<CreateTaleFormProps> = ({ onSubmit }) => {
             className="create-tale__input"
           />
         </label>
+        {formErrors.age && (
+          <div className="registration__error">{formErrors.age}</div>
+        )}
       </div>
       <div className="create-tale__container">
         <label aria-label="Дополнительная информация">
@@ -152,6 +164,9 @@ const CreateTaleForm: React.FC<CreateTaleFormProps> = ({ onSubmit }) => {
             className="create-tale__input"
           />
         </label>
+        {formErrors.additional && (
+          <div className="registration__error">{formErrors.additional}</div>
+        )}
       </div>
       <div className="create-tale__container">
         <label aria-label="Добавить иллюстрации к сказке">
@@ -182,4 +197,4 @@ const CreateTaleForm: React.FC<CreateTaleFormProps> = ({ onSubmit }) => {
   );
 };
 
-export { CreateTaleForm };
+export default CreateTaleForm;
