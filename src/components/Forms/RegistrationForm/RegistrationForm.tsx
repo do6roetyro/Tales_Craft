@@ -7,19 +7,26 @@ import {
 } from "../../../utils/registrationValidate";
 import Button from "@mui/material/Button";
 
+interface FormData {
+  username: string;
+  email: string;
+  password: string;
+  confirmPassword: string;
+}
+
 interface RegistrationFormProps {
-  onSubmit: (formData: any) => void;
+  onSubmit: (formData: FormData) => void;
 }
 
 const RegistrationForm: React.FC<RegistrationFormProps> = ({ onSubmit }) => {
-  const [formData, setFormData] = React.useState({
+  const [formData, setFormData] = useState<FormData>({
     username: "",
     email: "",
     password: "",
     confirmPassword: "",
   });
 
-  const [formErrors, setFormErrors] = React.useState({
+  const [formErrors, setFormErrors] = useState<FormData>({
     username: "",
     email: "",
     password: "",
@@ -54,10 +61,7 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({ onSubmit }) => {
   };
 
   return (
-    <form
-      className="registration__form"
-      onSubmit={handleSubmit}
-    >
+    <form className="registration__form" onSubmit={handleSubmit}>
       <div className="registration__container">
         <label className="registration__label">
           <input

@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import Checkbox from "@mui/material/Checkbox";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Button from "@mui/material/Button";
+import {
+  validateAge,
+  validateTextLength,
+} from "../../../utils/createTaleValidate";
 
 interface FormData {
   theme: string;
@@ -13,20 +17,70 @@ interface FormData {
 }
 
 interface CreateTaleFormProps {
-  formData: FormData;
-  handleChange: (
-    e: React.ChangeEvent<
-      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >
-  ) => void;
-  handleSubmit: (e: React.FormEvent) => void;
+  onSubmit: (formData: FormData) => void;
 }
 
-const CreateTaleForm: React.FC<CreateTaleFormProps> = ({
-  formData,
-  handleChange,
-  handleSubmit,
-}) => {
+const CreateTaleForm: React.FC<CreateTaleFormProps> = ({ onSubmit }) => {
+  const [formData, setFormData] = useState<FormData>({
+    theme: "",
+    heroes: "",
+    environment: "",
+    age: "",
+    additional: "",
+    illustrations: false,
+  });
+
+  const [formErrors, setFormErrors] = useState<FormData>({
+    theme: "",
+    heroes: "",
+    environment: "",
+    age: "",
+    additional: "",
+    illustrations: false,
+  });
+
+  const handleChange = (
+    event: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) => {
+    const { name, value, type } = event.target as
+      | HTMLInputElement
+      | HTMLTextAreaElement
+      | HTMLSelectElement;
+    let error = "";
+
+    if (type === "checkbox") {
+      setFormData({
+        ...formData,
+        [name]: (event.target as HTMLInputElement).checked,
+      });
+    } else {
+      setFormData({
+        ...formData,
+        [name]: value,
+      });
+
+      if (name === "age") {
+        error = validateAge(value);
+      } else {
+        error = validateTextLength(value);
+      }
+
+      setFormErrors({
+        ...formErrors,
+        [name]: error,
+      });
+    }
+  };
+
+  const handleSubmit = (event: React.FormEvent) => {
+    event.preventDefault();
+    if (Object.values(formErrors).every((error) => error === "")) {
+      onSubmit(formData);
+    }
+  };
+
   return (
     <form onSubmit={handleSubmit} className="create-tale__form">
       <div className="create-tale__container">
@@ -128,4 +182,4 @@ const CreateTaleForm: React.FC<CreateTaleFormProps> = ({
   );
 };
 
-export { CreateTaleForm }
+export { CreateTaleForm };
