@@ -1,0 +1,63 @@
+@use "../global/variables.scss";
+
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-left: 1rem;
+    padding-right: 1rem;
+
+    @media (min-width: variables.$screen-tablet) {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+}
+
+.hero__container {
+ 
+    box-shadow: 0 0.25rem 0.4rem rgba(0, 0, 0, 0.4); 
+    // backdrop-filter: blur(10px);
+    border-radius: 0.5rem; 
+    width: clamp(288px, calc((288px / 500px) * 100vw) ,768px);
+    padding: 1.5rem;
+    background-color: #ffffff;
+}
+
+.hero__image {
+    position: relative;
+    right: 10px;
+    object-fit: cover;
+    width: clamp(250px, calc((250 / 550) * 100vw), 600px);
+    height: clamp(250px, calc((300 / 640) * 100vw), 500px);
+}
+
+.hero__title {
+    font-size: clamp(1.8rem, 4vw, 6rem);
+    line-height: clamp(2rem, 5vw, 4rem);
+    font-weight: 700;
+    color: #000000;
+    margin-bottom: 2rem;
+}
+
+.hero__description  {
+    padding-bottom: 2rem;
+}
+
+.hero__link {
+    background-color: #ffffff;
+    border: 2px solid #000000;
+    color: #000000;
+    font-weight: bold;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    border-radius: 0.5rem;
+    transition: background-color 300ms ease-in-out;
+
+    &:hover {
+        background-color: #3182ce;
+    }
+}

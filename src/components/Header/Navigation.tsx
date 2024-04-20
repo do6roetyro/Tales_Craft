@@ -26,30 +26,30 @@ const Navigation: React.FC<NavigationProps> = ({
 
   return (
     <nav className={navigationClass}>
-      <Link to="/" className="text-lg hover:text-gray-300 main-nav__link link">
+      <Link to="/" className="main-nav__link link">
         {homeButtonText}
       </Link>
       <button
         onClick={onLoginClick}
-        className="text-lg hover:text-gray-300 main-nav__link main-nav__link--button button"
+        className="main-nav__link main-nav__link--button button"
       >
         {loginButtonText}
       </button>
       <Link
         to="/registration"
-        className="text-lg hover:text-gray-300 main-nav__link link"
+        className="main-nav__link link"
       >
         {registrationButtonText}
       </Link>
       <Link
         to="/create"
-        className="text-lg hover:text-gray-300 main-nav__link link"
+        className="main-nav__link link"
       >
         {createTaleButtonText}
       </Link>
       <Link
         to="/about"
-        className="text-lg hover:text-gray-300 main-nav__link link"
+        className="main-nav__link link"
       >
         {aboutButtonText}
       </Link>

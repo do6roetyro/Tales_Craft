@@ -1,19 +1,27 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import heroTitle from "../assets/images/hero.svg";
 const HomePage: React.FC = () => {
   return (
-    <section className="h-screen flex flex-col justify-center items-center text-center px-4">
-      <h2 className="text-5xl text-blue-800 font-bold mb-4">Tales Craft</h2>
-      <p className="text-2xl text-blue-700 mb-8">
-        Создай своё сказочное путешествие
-      </p>
-      <Link
-        to="/create"
-        className="bg-blue-500 text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-600 transition duration-300 ease-in-out"
-      >
-        Начните своё путешествие!
+    <section className="hero">
+      <h2 className="visually-hidden">
+        Tales Craft - путешествие в сказочный мир
+      </h2>
+      <img
+        src={heroTitle}
+        alt="Tales Craft"
+        className="hero__image"
+        width={250}
+        height={300}
+      />
+      <div className="hero__container">
+      <p className="hero__title title">Добро пожаловать в мир сказочного творчества!</p>
+      <p className="hero__description description"> Откройте дверь в волшебный мир, где каждый может стать творцом своей
+        уникальной сказки.</p>
+      <Link to="/create" className="hero__link link">
+        Начните путешествие!
       </Link>
+      </div>
     </section>
   );
 };

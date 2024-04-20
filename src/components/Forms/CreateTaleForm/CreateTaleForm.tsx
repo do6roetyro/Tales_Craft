@@ -97,7 +97,7 @@ const CreateTaleForm: React.FC<CreateTaleFormProps> = ({ onSubmit }) => {
           />
         </label>
         {formErrors.theme && (
-          <div className="registration__error">{formErrors.theme}</div>
+          <div className="create-tale__error">{formErrors.theme}</div>
         )}
       </div>
       <div className="create-tale__container">
@@ -114,7 +114,7 @@ const CreateTaleForm: React.FC<CreateTaleFormProps> = ({ onSubmit }) => {
           />
         </label>
         {formErrors.heroes && (
-          <div className="registration__error">{formErrors.heroes}</div>
+          <div className="create-tale__error">{formErrors.heroes}</div>
         )}
       </div>
       <div className="create-tale__container">
@@ -131,7 +131,7 @@ const CreateTaleForm: React.FC<CreateTaleFormProps> = ({ onSubmit }) => {
           />
         </label>
         {formErrors.environment && (
-          <div className="registration__error">{formErrors.environment}</div>
+          <div className="create-tale__error">{formErrors.environment}</div>
         )}
       </div>
       <div className="create-tale__container">
@@ -148,7 +148,7 @@ const CreateTaleForm: React.FC<CreateTaleFormProps> = ({ onSubmit }) => {
           />
         </label>
         {formErrors.age && (
-          <div className="registration__error">{formErrors.age}</div>
+          <div className="create-tale__error">{formErrors.age}</div>
         )}
       </div>
       <div className="create-tale__container">
@@ -165,7 +165,7 @@ const CreateTaleForm: React.FC<CreateTaleFormProps> = ({ onSubmit }) => {
           />
         </label>
         {formErrors.additional && (
-          <div className="registration__error">{formErrors.additional}</div>
+          <div className="create-tale__error">{formErrors.additional}</div>
         )}
       </div>
       <div className="create-tale__container">

@@ -30,13 +30,13 @@
     transition: color 0.3s;
     
     &--button {
-        margin-top: 2px;
-        padding: 0;
+       
         border: none;
         color: inherit;
+        font-family: variables.$font-ibm;
     }
 
     &:hover {
-        color: #d1d5db;
+        color: #607d9a;
     }
 }

@@ -13,3 +13,36 @@
   src: url("../../fonts/open_sans_bold.woff2") format("woff2");
   font-display: swap;
 }
+
+@font-face {
+  font-family: "IBMPlexSerif";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../../fonts/IBMPlexSerif-Regular.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "IBMPlexSerif";
+  font-style: normal;
+  font-weight: 700;
+  src: url("../../fonts/IBMPlexSerif-Regular.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "PlayfairDisplay";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../../fonts/PlayfairDisplay-Regular.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "PlayfairDisplay";
+  font-style: normal;
+  font-weight: 700;
+  src: url("../../fonts/PlayfairDisplay-Regular.woff2") format("woff2");
+  font-display: swap;
+}
+
