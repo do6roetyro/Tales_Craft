@@ -19,6 +19,8 @@
 .create-tale__title {
     padding: 1rem;
     text-align: center;
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    line-height: clamp(2rem, 5vw, 4rem);
 }
 
 .create-tale__form {

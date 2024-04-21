@@ -29,7 +29,7 @@ function App() {
       <Footer
       aboutLinkText = "О нас"
       supportLinkText = "Поддержать разработчика"
-      copyrightText = "© Craft Tales"
+      copyrightText = "© Tales Craft"
       />
      
     </React.Fragment>

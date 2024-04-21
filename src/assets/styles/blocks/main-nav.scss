@@ -14,19 +14,21 @@
     &--horizontal {
         display: none;
         color: #ffffff;
-
+        padding: clamp(1rem, 3vw, 2rem);
         @media (min-width: variables.$screen-tablet) {
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 2rem;
             padding-right: 1rem;
+            
         }
     }
 }
 
 .main-nav__link {
-    font-size: 1.125rem;
+    font-size: clamp(20px, 2vw, 1.5rem);
+    line-height: clamp(2rem, 5vw, 2rem);
     transition: color 0.3s;
     
     &--button {

@@ -14,10 +14,20 @@
     border-radius: 0.5rem;
     box-shadow: 0 0.25rem 0.4rem rgba(0, 0, 0, 0.4);
     padding: 1rem;
-    // backdrop-filter: blur(10px);
     background-color: #ffffff;
 }
 
 .about__title {
     text-align: center;
+    padding-bottom: 2rem;
+    font-size: clamp(1.8rem, 4vw, 6rem);
+    line-height: clamp(2rem, 5vw, 4rem);
+}
+
+.about__description {
+    text-indent: 30px;
+    padding-bottom: 1rem;
+    text-wrap: pretty;
+    font-size: clamp(1rem, 4vw, 1.5rem);
+    line-height: clamp(1rem, 5vw, 2rem);
 }

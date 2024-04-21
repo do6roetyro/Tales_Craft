@@ -6,6 +6,7 @@ import {
   validateAge,
   validateTextLength,
 } from "../../../utils/createTaleValidate";
+import { fetchTaleFromOpenAI } from "../../../services/openaiService";
 
 interface FormData {
   theme: string;
@@ -60,9 +61,9 @@ const CreateTaleForm: React.FC<CreateTaleFormProps> = ({ onSubmit }) => {
     }
   };
 
-  const handleSubmit = (event: React.FormEvent) => {
+  const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
-
+console.log('я отправилась')
     const errors = {
       theme: validateTextLength(formData.theme),
       heroes: validateTextLength(formData.heroes),
@@ -75,10 +76,17 @@ const CreateTaleForm: React.FC<CreateTaleFormProps> = ({ onSubmit }) => {
     setFormErrors(errors);
 
     const noErrors = Object.values(errors)
-      .filter((error) => typeof error=== "string")
-      .every((error) => error === ""); 
+      .filter((error) => typeof error === "string")
+      .every((error) => error === "");
     if (noErrors) {
-      onSubmit(formData);
+      try {
+        const taleText = await fetchTaleFromOpenAI(formData);
+        console.log("Сгенерированная сказка:", taleText);
+        // Здесь можете вызвать функцию для генерации PDF с taleText
+        onSubmit(formData); // Если нужно передать данные выше или дополнительно обработать
+      } catch (error) {
+        console.error("Ошибка при получении сказки:", error);
+      }
     }
   };
   return (
