@@ -1,0 +1,6 @@
+.footer-nav__link {
+    &:hover {
+        text-decoration: underline;
+        text-underline-offset: 2px;
+    }
+}

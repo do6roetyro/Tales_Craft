@@ -6,6 +6,7 @@
 @use "./global/title.scss";
 @use "./global/variables.scss";
 @use "./global/visually-hidden.scss";
+@use "./global/wrapper.scss";
 @use "./blocks/page.scss";
 @use "./blocks/main-container.scss";
 @use "./blocks/main-header.scss";
@@ -15,3 +16,8 @@
 @use "./blocks/registration.scss";
 @use "./blocks/create-tale.scss";
 @use "./blocks/hero.scss";
+@use "./blocks/main-footer.scss";
+@use "./blocks/social.scss";
+@use "./blocks/copyright.scss";
+@use "./blocks/footer-nav.scss";
+@use "./blocks/about.scss";

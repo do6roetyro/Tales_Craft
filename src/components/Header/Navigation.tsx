@@ -2,21 +2,21 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 interface NavigationProps {
-  homeButtonText: string;
-  loginButtonText: string;
-  registrationButtonText: string;
-  aboutButtonText: string;
-  createTaleButtonText: string;
+  homeLinkText: string;
+  loginLinkText: string;
+  registrationLinkText: string;
+  aboutLinkText: string;
+  createTaleLinkText: string;
   onLoginClick: () => void;
   vertical?: boolean;
 }
 
 const Navigation: React.FC<NavigationProps> = ({
-  homeButtonText,
-  loginButtonText,
-  registrationButtonText,
-  aboutButtonText,
-  createTaleButtonText,
+  homeLinkText,
+  loginLinkText,
+  registrationLinkText,
+  aboutLinkText,
+  createTaleLinkText,
   onLoginClick,
   vertical = false,
 }) => {
@@ -27,31 +27,31 @@ const Navigation: React.FC<NavigationProps> = ({
   return (
     <nav className={navigationClass}>
       <Link to="/" className="main-nav__link link">
-        {homeButtonText}
+        {homeLinkText}
       </Link>
       <button
         onClick={onLoginClick}
         className="main-nav__link main-nav__link--button button"
       >
-        {loginButtonText}
+        {loginLinkText}
       </button>
       <Link
         to="/registration"
         className="main-nav__link link"
       >
-        {registrationButtonText}
+        {registrationLinkText}
       </Link>
       <Link
         to="/create"
         className="main-nav__link link"
       >
-        {createTaleButtonText}
+        {createTaleLinkText}
       </Link>
       <Link
         to="/about"
         className="main-nav__link link"
       >
-        {aboutButtonText}
+        {aboutLinkText}
       </Link>
     </nav>
   );

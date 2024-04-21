@@ -12,7 +12,8 @@
 .create-tale__wrapper {
     border-radius: 0.5rem;
     box-shadow: 0 0.25rem 0.4rem rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(10px);
+    // backdrop-filter: blur(10px);
+    background-color: #ffffff;
 }
 
 .create-tale__title {

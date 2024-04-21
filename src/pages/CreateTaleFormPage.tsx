@@ -9,7 +9,7 @@ const CreateTaleFormPage: React.FC = () => {
 
   return (
     <section className="create-tale">
-      <div className="create-tale__wrapper">
+      <div className="create-tale__wrapper wrapper">
         <h2 className="visually-hidden">Cоздание сказки.</h2>
         <p className="create-tale__title title">
           Сделайте первый шаг навстречу сказочному путешествию:

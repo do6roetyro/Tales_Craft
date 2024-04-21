@@ -9,19 +9,19 @@ import Drawer from "@mui/material/Drawer";
 import Navigation from "./Navigation";
 
 interface HeaderProps {
-  loginButtonText: string;
-  registrationButtonText: string;
-  aboutButtonText: string;
-  homeButtonText: string;
-  createTaleButtonText: string;
+  loginLinkText: string;
+  registrationLinkText: string;
+  aboutLinkText: string;
+  homeLinkText: string;
+  createTaleLinkText: string;
 }
 
 const Header: React.FC<HeaderProps> = ({
-  loginButtonText,
-  registrationButtonText,
-  aboutButtonText,
-  homeButtonText,
-  createTaleButtonText,
+  loginLinkText,
+  registrationLinkText,
+  aboutLinkText,
+  homeLinkText,
+  createTaleLinkText,
 }) => {
   const [isLoginModalOpen, setLoginModalOpen] = useState(false);
   const [isDrawerOpen, setDrawerOpen] = useState(false);
@@ -55,11 +55,11 @@ const Header: React.FC<HeaderProps> = ({
       </IconButton>
       {/* Это навигация для разрешения выше 768 px */}
       <Navigation
-        homeButtonText={homeButtonText}
-        loginButtonText={loginButtonText}
-        registrationButtonText={registrationButtonText}
-        aboutButtonText={aboutButtonText}
-        createTaleButtonText={createTaleButtonText}
+        homeLinkText={homeLinkText}
+        loginLinkText={loginLinkText}
+        registrationLinkText={registrationLinkText}
+        aboutLinkText={aboutLinkText}
+        createTaleLinkText={createTaleLinkText}
         onLoginClick={openLoginModal}
       />
       <Drawer anchor="right" open={isDrawerOpen} onClose={toggleDrawer(false)}>
@@ -70,11 +70,11 @@ const Header: React.FC<HeaderProps> = ({
         >
           {/* Это навигация для разрешения мобильных устройств ниже 768 px */}
           <Navigation
-            homeButtonText={homeButtonText}
-            loginButtonText={loginButtonText}
-            registrationButtonText={registrationButtonText}
-            aboutButtonText={aboutButtonText}
-            createTaleButtonText={createTaleButtonText}
+            homeLinkText={homeLinkText}
+            loginLinkText={loginLinkText}
+            registrationLinkText={registrationLinkText}
+            aboutLinkText={aboutLinkText}
+            createTaleLinkText={createTaleLinkText}
             onLoginClick={openLoginModal}
             vertical={true}
           />

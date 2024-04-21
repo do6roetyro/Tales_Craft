@@ -1,0 +1,27 @@
+@use "../global/variables.scss";
+
+.main-footer {
+    // display: flex;
+    // justify-content: space-between;
+    padding: 1rem;
+    color: #ffffff;
+    border-top: 0.2rem solid #f8d3c9;
+    background-color: #607d9a;
+
+    @media (min-width: variables.$screen-tablet) {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+}
+
+.main-footer__container {
+    display: flex;
+    justify-content: space-between;
+    gap: 60px;
+    padding-bottom: 2rem;
+}
+
+.main-footer__nav {
+    width: fit-content;
+}
+

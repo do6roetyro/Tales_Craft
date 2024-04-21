@@ -1,0 +1,11 @@
+.copyright {
+    font-size: 0.8rem;
+    line-height: 1rem;
+}
+
+.copyright__link {
+    &:hover {
+        text-decoration: underline;
+        text-underline-offset: 2px;
+    }
+}

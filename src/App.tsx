@@ -5,17 +5,18 @@ import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
 import RegistrationPage from "./pages/RegistrationPage";
 import CreateTaleFormPage from "./pages/CreateTaleFormPage";
+import Footer from "./components/Footer/Footer";
 import "./assets/styles/index.scss";
 
 function App() {
   return (
     <React.Fragment>
       <Header
-        loginButtonText="Войти"
-        registrationButtonText="Регистрация"
-        aboutButtonText="О нас"
-        homeButtonText="Главная"
-        createTaleButtonText="Создать сказку"
+        loginLinkText="Войти"
+        registrationLinkText="Регистрация"
+        aboutLinkText="О нас"
+        homeLinkText="Главная"
+        createTaleLinkText="Создать сказку"
       />
       <main className="main-container">
         <Routes>
@@ -25,8 +26,12 @@ function App() {
           <Route path="/create" element={<CreateTaleFormPage />} />
         </Routes>
       </main>
-      <footer>
-      </footer>
+      <Footer
+      aboutLinkText = "О нас"
+      supportLinkText = "Поддержать разработчика"
+      copyrightText = "© Craft Tales"
+      />
+     
     </React.Fragment>
   );
 }

@@ -9,7 +9,7 @@ const RegistrationPage: React.FC = () => {
 
   return (
     <section className="registration">
-      <div className="registration__wrapper">
+      <div className="registration__wrapper  wrapper">
       <h2 className="registration__title title">Регистрация пользователя</h2>
       <RegistrationForm onSubmit={handleFormSubmit} />
       </div>
