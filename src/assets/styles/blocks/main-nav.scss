@@ -21,7 +21,6 @@
             justify-content: center;
             gap: 2rem;
             padding-right: 1rem;
-            
         }
     }
 }
@@ -30,9 +29,8 @@
     font-size: clamp(20px, 2vw, 1.5rem);
     line-height: clamp(2rem, 5vw, 2rem);
     transition: color 0.3s;
-    
+
     &--button {
-       
         border: none;
         color: inherit;
         font-family: variables.$font-ibm;
@@ -40,5 +38,10 @@
 
     &:hover {
         color: #607d9a;
+    }
+
+    &--active {
+        color: #4caf50; /* Зеленый цвет для активных ссылок */
+        font-weight: bold;
     }
 }

@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 interface NavigationProps {
   homeLinkText: string;
@@ -24,35 +24,40 @@ const Navigation: React.FC<NavigationProps> = ({
     ? "main-nav--vertical"
     : "main-nav--horizontal";
 
+  const getNavLinkClass = (isActive: boolean) =>
+    isActive
+      ? "main-nav__link link main-nav__link--active"
+      : "main-nav__link link";
+
   return (
     <nav className={navigationClass}>
-      <Link to="/" className="main-nav__link link">
+      <NavLink to="/" className={({ isActive }) => getNavLinkClass(isActive)}>
         {homeLinkText}
-      </Link>
+      </NavLink>
       <button
         onClick={onLoginClick}
         className="main-nav__link main-nav__link--button button"
       >
         {loginLinkText}
       </button>
-      <Link
+      <NavLink
         to="/registration"
-        className="main-nav__link link"
+        className={({ isActive }) => getNavLinkClass(isActive)}
       >
         {registrationLinkText}
-      </Link>
-      <Link
+      </NavLink>
+      <NavLink
         to="/create"
-        className="main-nav__link link"
+        className={({ isActive }) => getNavLinkClass(isActive)}
       >
         {createTaleLinkText}
-      </Link>
-      <Link
+      </NavLink>
+      <NavLink
         to="/about"
-        className="main-nav__link link"
+        className={({ isActive }) => getNavLinkClass(isActive)}
       >
         {aboutLinkText}
-      </Link>
+      </NavLink>
     </nav>
   );
 };

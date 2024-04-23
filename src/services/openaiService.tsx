@@ -1,5 +1,4 @@
-const OPENAI_API_URL =
-  "https://api.openai.com/v1/engines/davinci-002/completions";
+const OPENAI_API_URL = "https://api.openai.com/v1/chat/completions";
 
 interface FormData {
   theme: string;
@@ -9,13 +8,22 @@ interface FormData {
   additional: string;
 }
 
+interface OpenAIError {
+  message: string;
+}
+
 // Функция для повторных попыток запроса
-const fetchWithRetry = async (url: string, options: RequestInit, retries = 3, delay = 1000): Promise<any> => {
+const fetchWithRetry = async (
+  url: string,
+  options: RequestInit,
+  retries = 3,
+  delay = 1000
+): Promise<any> => {
   try {
     const response = await fetch(url, options);
     if (!response.ok && response.status === 429 && retries > 0) {
       console.log(`Retrying request... Retries left: ${retries - 1}`);
-      await new Promise(resolve => setTimeout(resolve, delay));
+      await new Promise((resolve) => setTimeout(resolve, delay));
       return fetchWithRetry(url, options, retries - 1, delay * 2); // Экспоненциальная задержка
     }
     if (!response.ok) {
@@ -30,8 +38,18 @@ const fetchWithRetry = async (url: string, options: RequestInit, retries = 3, de
 
 export async function fetchTaleFromOpenAI(formData: FormData): Promise<string> {
   const requestBody = {
-    prompt: `Создай детскую сказку по следующим критериям. Тема: ${formData.theme}, Герои: ${formData.heroes}, Окружение: ${formData.environment}, Возраст ребенка: ${formData.age}, Дополнительно: ${formData.additional}`,
-    max_tokens: 300,
+    messages: [
+      {
+        role: "system", 
+        content: `Создай детскую сказку с названием по следующим критериям:`,
+      },
+      {
+        role: "user", 
+        content: `Тема: ${formData.theme}, Герои: ${formData.heroes}, Окружение: ${formData.environment}, Возраст ребенка: ${formData.age}, Дополнительно: ${formData.additional}`,
+      },
+    ],
+    model: "gpt-3.5-turbo", // Указываем модель явно, если это необходимо
+    max_tokens: 1024,
     temperature: 0.7,
   };
 
@@ -47,7 +65,14 @@ export async function fetchTaleFromOpenAI(formData: FormData): Promise<string> {
   try {
     const data = await fetchWithRetry(OPENAI_API_URL, requestOptions);
     console.log("Ответ OpenAI:", data);
-    return data.choices[0].text;
+    if (data.errors) {
+      throw new Error(
+        `API error: ${data.errors
+          .map((error: OpenAIError) => error.message)
+          .join(", ")}`
+      );
+    }
+    return data.choices[0].message.content; // Получение содержимого сообщения
   } catch (error) {
     console.error("Ошибка при запросе к OpenAI:", error);
     throw error;

@@ -27,7 +27,7 @@ const LoginForm: React.FC = () => {
           type="submit"
           variant="contained"
           color="primary"
-          className="w-full max-w-52 mx-auto mt-4 login__button button"
+          className="login__button button"
         >
            Войти
         </Button>

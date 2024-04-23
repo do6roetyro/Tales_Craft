@@ -5,8 +5,11 @@ import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
 import RegistrationPage from "./pages/RegistrationPage";
 import CreateTaleFormPage from "./pages/CreateTaleFormPage";
+import TaleDisplayPage from "./pages/TaleDisplayPage";
 import Footer from "./components/Footer/Footer";
 import "./assets/styles/index.scss";
+
+import { NavLink } from "react-router-dom";
 
 function App() {
   return (
@@ -24,14 +27,15 @@ function App() {
           <Route path="/about" element={<AboutPage />} />
           <Route path="/registration" element={<RegistrationPage />} />
           <Route path="/create" element={<CreateTaleFormPage />} />
+          <Route path="/tale" element={<TaleDisplayPage />} />
         </Routes>
+        <NavLink to="/tale" className='test'></NavLink>
       </main>
       <Footer
-      aboutLinkText = "О нас"
-      supportLinkText = "Поддержать разработчика"
-      copyrightText = "© Tales Craft"
+        aboutLinkText="О Приложении"
+        supportLinkText="Поддержать разработчика"
+        copyrightText="© Tales Craft"
       />
-     
     </React.Fragment>
   );
 }
