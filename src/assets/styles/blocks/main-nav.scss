@@ -7,7 +7,7 @@
         align-items: flex-start;
         justify-content: center;
         padding: 1rem;
-        gap: 1rem;
+        // gap: 1rem;
         color: #000000;
     }
 
@@ -26,7 +26,7 @@
 }
 
 .main-nav__link {
-    font-size: clamp(20px, 2vw, 1.5rem);
+    font-size: clamp(16px, 2vw, 1.5rem);
     line-height: clamp(2rem, 5vw, 2rem);
     transition: color 0.3s;
 
@@ -41,7 +41,10 @@
     }
 
     &--active {
-        color: #4caf50; /* Зеленый цвет для активных ссылок */
+        color: #607d9a; /* Зеленый цвет для активных ссылок */
         font-weight: bold;
+        text-decoration: underline;
+        text-underline-offset: 4px;
+
     }
 }

@@ -17,7 +17,7 @@
 .hero__container {
     box-shadow: 0 0.25rem 0.4rem rgba(0, 0, 0, 0.4);
     border-radius: 0.5rem;
-    width: clamp(288px, calc((288px / 500px) * 100vw), 768px);
+    width: clamp(288px, 71.6vw, 768px);
     padding: 1.5rem;
     background-color: #ffffff;
 }

@@ -1,0 +1,73 @@
+@use "../global/variables.scss";
+
+.tale-display {
+    padding: 1rem;
+
+    @media (min-width: variables.$screen-tablet) {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+}
+
+.tale-display__wrapper {
+    border-radius: 0.5rem;
+    box-shadow: 0 0.25rem 0.4rem rgba(0, 0, 0, 0.4);
+    background-color: #ffffff;
+    padding: 1.5rem;
+    padding-top: 2rem;
+    padding-left: clamp(1.5rem, 5vw, 2.5rem);
+    padding-right: clamp(1.5rem, 5vw, 2.5rem);
+}
+
+.tale-display__image {
+    margin: 0 auto;
+    width: 200px;
+    width: clamp(200px, 40vw, 400px);
+    height: 200px;
+    height: clamp(200px, 40vw, 400px);
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.tale-display__main-text {
+    text-indent: 30px;
+    text-align: justify;
+    overflow-wrap: break-word;
+    word-break: normal;
+    hyphens: auto;
+    font-size: clamp(1rem, 4vw, 1.5rem);
+    line-height: clamp(1rem, 5vw, 2rem);
+   
+
+    &--third {
+        padding-bottom: 2rem;
+    }
+}
+
+.tale-display__title {
+    
+    padding-bottom: 3rem;
+    text-align: center;
+    font-size: clamp(1.5rem, 5vw, 2rem);
+    line-height: clamp(1.5rem, 5vw, 2rem);
+}
+
+.tale-display__option-buttons {
+    display: flex;
+    justify-content: flex-end;
+    padding-bottom: 2rem;
+    gap: 1.5rem;
+}
+
+.tale-display__route-buttons {
+    display: flex;
+    justify-content: center;
+   
+}
+
+.test {
+    display: block;
+    width: 50px;
+    height: 50px;
+    background-color: red;
+}

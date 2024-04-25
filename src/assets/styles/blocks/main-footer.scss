@@ -1,8 +1,6 @@
 @use "../global/variables.scss";
 
 .main-footer {
-    // display: flex;
-    // justify-content: space-between;
     padding: 1rem;
     color: #ffffff;
     border-top: 0.2rem solid #f8d3c9;
@@ -23,5 +21,7 @@
 
 .main-footer__nav {
     width: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
 }
-
