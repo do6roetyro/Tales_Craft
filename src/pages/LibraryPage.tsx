@@ -1,20 +1,26 @@
 import React from "react";
-import RegistrationForm from "../components/Forms/RegistrationForm/RegistrationForm";
 
-const ExamplesPage: React.FC = () => {
-  const handleFormSubmit = (formData: any) => {
-    console.log("Форма отправлена", formData);
-    // Логика отправки данных на сервер
-  };
+const LibraryPage: React.FC = () => {
+  
 
   return (
-    <section className="registration">
-      <div className="registration__wrapper  wrapper">
-      <h2 className="registration__title title">Регистрация пользователя</h2>
-      <RegistrationForm onSubmit={handleFormSubmit} />
+    <section className="library">
+      <div className="library__wrapper  wrapper">
+      <h2 className="library__title title">Библиотека</h2>
+    <ul className="library__list list">
+      <li className="library__item">
+        <a href="" className="library__link link" >Сказка №1</a>
+      </li>
+      <li className="library__item">
+        <a href="" className="library__link link" >Сказка №2</a>
+      </li>
+      <li className="library__item">
+        <a href="" className="library__link link" >Сказка №3</a>
+      </li>
+    </ul>
       </div>
     </section>
   );
 };
 
-export default ExamplesPage;
+export default LibraryPage;

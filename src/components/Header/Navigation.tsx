@@ -7,6 +7,7 @@ interface NavigationProps {
   registrationLinkText: string;
   aboutLinkText: string;
   createTaleLinkText: string;
+  libraryLinkText: string;
   onLoginClick: () => void;
   vertical?: boolean;
 }
@@ -17,6 +18,7 @@ const Navigation: React.FC<NavigationProps> = ({
   registrationLinkText,
   aboutLinkText,
   createTaleLinkText,
+  libraryLinkText,
   onLoginClick,
   vertical = false,
 }) => {
@@ -57,6 +59,12 @@ const Navigation: React.FC<NavigationProps> = ({
         className={({ isActive }) => getNavLinkClass(isActive)}
       >
         {aboutLinkText}
+      </NavLink>
+      <NavLink
+        to="/lib"
+        className={({ isActive }) => getNavLinkClass(isActive)}
+      >
+        {libraryLinkText}
       </NavLink>
     </nav>
   );

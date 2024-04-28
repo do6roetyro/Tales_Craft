@@ -1,6 +1,7 @@
 {
   "name": "tales_craft",
   "version": "0.1.0",
+  "type": "module",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.11.4",
@@ -12,7 +13,14 @@
     "@testing-library/user-event": "^13.5.0",
     "@types/jest": "^27.5.2",
     "@types/node": "^16.18.95",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "express-validator": "^7.0.1",
+    "jsonwebtoken": "^9.0.2",
     "jspdf": "^2.5.1",
+    "mongoose": "^8.3.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.22.3",
@@ -53,5 +61,10 @@
     "autoprefixer": "^10.4.19",
     "postcss": "^8.4.38",
     "tailwindcss": "^3.4.3"
-  }
+  },
+  "description": "tales_craft",
+  "main": "server.js",
+  "keywords": [],
+  "author": "dobroeytro",
+  "license": "ISC"
 }

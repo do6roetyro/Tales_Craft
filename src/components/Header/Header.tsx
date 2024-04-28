@@ -14,6 +14,7 @@ interface HeaderProps {
   aboutLinkText: string;
   homeLinkText: string;
   createTaleLinkText: string;
+  libraryLinkText: string;
 }
 
 const Header: React.FC<HeaderProps> = ({
@@ -22,6 +23,7 @@ const Header: React.FC<HeaderProps> = ({
   aboutLinkText,
   homeLinkText,
   createTaleLinkText,
+  libraryLinkText,
 }) => {
   const [isLoginModalOpen, setLoginModalOpen] = useState(false);
   const [isDrawerOpen, setDrawerOpen] = useState(false);
@@ -60,6 +62,7 @@ const Header: React.FC<HeaderProps> = ({
         registrationLinkText={registrationLinkText}
         aboutLinkText={aboutLinkText}
         createTaleLinkText={createTaleLinkText}
+        libraryLinkText= {libraryLinkText}
         onLoginClick={openLoginModal}
       />
       <Drawer anchor="right" open={isDrawerOpen} onClose={toggleDrawer(false)}>
@@ -75,6 +78,7 @@ const Header: React.FC<HeaderProps> = ({
             registrationLinkText={registrationLinkText}
             aboutLinkText={aboutLinkText}
             createTaleLinkText={createTaleLinkText}
+            libraryLinkText= {libraryLinkText}
             onLoginClick={openLoginModal}
             vertical={true}
           />

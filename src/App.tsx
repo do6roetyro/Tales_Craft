@@ -6,6 +6,7 @@ import AboutPage from "./pages/AboutPage";
 import RegistrationPage from "./pages/RegistrationPage";
 import CreateTaleFormPage from "./pages/CreateTaleFormPage";
 import TaleDisplayPage from "./pages/TaleDisplayPage";
+import LibraryPage from "./pages/LibraryPage";
 import Footer from "./components/Footer/Footer";
 import "./assets/styles/index.scss";
 
@@ -20,6 +21,7 @@ function App() {
         aboutLinkText="О нас"
         homeLinkText="Главная"
         createTaleLinkText="Создать сказку"
+        libraryLinkText="Библиотека"
       />
       <main className="main-container">
         <Routes>
@@ -28,6 +30,7 @@ function App() {
           <Route path="/registration" element={<RegistrationPage />} />
           <Route path="/create" element={<CreateTaleFormPage />} />
           <Route path="/tale" element={<TaleDisplayPage />} />
+          <Route path="/lib" element={<LibraryPage />} />
         </Routes>
         <NavLink to="/tale" className='test'></NavLink>
       </main>
