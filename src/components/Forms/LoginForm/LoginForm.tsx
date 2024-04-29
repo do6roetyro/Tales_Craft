@@ -1,6 +1,5 @@
 import React from "react";
 import Button from "@mui/material/Button";
-//TODO Уточнить какой action
 
 const LoginForm: React.FC = () => {
   return (
