@@ -1,4 +1,5 @@
 import React from "react";
+import BackToTheMainButton from "../components/BackToTheMainPageButton";
 
 const LibraryPage: React.FC = () => {
   
@@ -18,6 +19,7 @@ const LibraryPage: React.FC = () => {
         <a href="" className="library__link link" >Сказка №3</a>
       </li>
     </ul>
+      <BackToTheMainButton />
       </div>
     </section>
   );

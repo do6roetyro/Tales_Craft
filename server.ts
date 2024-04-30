@@ -1,9 +1,8 @@
-
-import 'dotenv/config';
-import express, { Application } from 'express';
-import cors from 'cors';
-import mongoose from 'mongoose';
-import userRoutes from './routes/userRoutes'; // Убедитесь, что userRoutes экспортируется как TypeScript модуль
+import "dotenv/config";
+import express, { Application } from "express";
+import cors from "cors";
+import userRoutes from "./routes/userRoutes";
+import db from "./database";
 
 const app: Application = express();
 
@@ -12,13 +11,16 @@ app.use(cors());
 app.use(express.json());
 
 // Подключение роутов
-app.use('/api/users', userRoutes);
+app.use("/api/users", userRoutes);
 
-// Подключение к MongoDB
-mongoose.connect(process.env.MONGO_URI as string)
-  .then(() => console.log('MongoDB connected'))
-  .catch(err => console.error('MongoDB connection error:', err));
+// Проверка подключения к БД MySQL
+db.query("SELECT 1")
+  .then(() => {
+    console.log("Connected to MySQL database successfully.");
+  })
+  .catch((err) => {
+    console.error("Failed to connect to MySQL database:", err);
+  });
 
 const PORT: number = parseInt(process.env.PORT as string, 10) || 5000;
-
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

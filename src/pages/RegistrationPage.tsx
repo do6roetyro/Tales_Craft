@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import RegistrationForm from "../components/Forms/RegistrationForm/RegistrationForm";
+import { useNavigate } from "react-router-dom";
 
 interface FormData {
   username: string;
@@ -9,9 +10,12 @@ interface FormData {
 }
 
 const RegistrationPage: React.FC = () => {
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
+
   const handleFormSubmit = async (formData: FormData) => {
-    // Удаляем confirmPassword перед отправкой на сервер, так как он не нужен для регистрации
     const { confirmPassword, ...dataToSend } = formData;
+    setError("");
 
     try {
       const response = await fetch("/api/users/register", {
@@ -29,7 +33,7 @@ const RegistrationPage: React.FC = () => {
 
       const result = await response.json();
       console.log("Результат регистрации:", result);
-      // Здесь можно, например, перенаправить пользователя на страницу входа
+      navigate("/");
     } catch (error) {
       console.error("Ошибка при отправке формы:", error);
     }
@@ -38,6 +42,7 @@ const RegistrationPage: React.FC = () => {
     <section className="registration">
       <div className="registration__wrapper  wrapper">
         <h2 className="registration__title title">Регистрация пользователя</h2>
+        {error && <p className="error">{error}</p>}
         <RegistrationForm onSubmit={handleFormSubmit} />
       </div>
     </section>

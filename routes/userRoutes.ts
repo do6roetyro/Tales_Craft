@@ -1,5 +1,6 @@
 import { Router, Request, Response } from "express";
-import User, { IUser } from "../models/User";
+import { findUserByEmail, createUser } from "../models/UserModel";
+import bcrypt from "bcryptjs";
 
 const router = Router();
 
@@ -8,22 +9,21 @@ router.post("/register", async (req: Request, res: Response) => {
     const { username, email, password } = req.body;
 
     // Проверяем, существует ли уже пользователь с таким email
-    // let user = await User.findOne({ email });
-    // if (user) {
-    //   return res
-    //     .status(400)
-    //     .json({ message: "Пользователь уже существует" });
-    // }
+    let user = await findUserByEmail(email);
+    if (user) {
+      return res.status(400).json({ message: "Пользователь уже существует" });
+    }
+
+    // Хешируем пароль перед сохранением в базу данных
+    const salt = await bcrypt.genSalt(12);
+    const hashedPassword = await bcrypt.hash(password, salt);
 
     // Создаем нового пользователя
-    let user = new User({
+    await createUser({
       username,
       email,
-      password,
-    } as IUser);
-
-    // Сохраняем пользователя в базе данных
-    await user.save();
+      password: hashedPassword,
+    });
 
     res.status(201).json({ message: "Пользователь создан" });
   } catch (error: any) {
@@ -31,4 +31,4 @@ router.post("/register", async (req: Request, res: Response) => {
   }
 });
 
-export default router;
+export default router
