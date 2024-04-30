@@ -1,5 +1,5 @@
 import React from "react";
-import TaleDisplay from "../components/TaleDisplay";
+import TaleDisplay from "../components/TaleDisplay/TaleDisplay";
 import { text1, text2, text3, title } from "../components/test";
 import image_1 from "../assets/images/image_1(test).jpg";
 import image_2 from "../assets/images/image_2(test).jpg";
