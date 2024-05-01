@@ -41,7 +41,7 @@ export async function fetchTaleFromOpenAI(formData: FormData): Promise<string> {
     messages: [
       {
         role: "system",
-        content: `Создай детскую сказку по следующим критериям. Текст должен начинаться с названия в кавычках и далее уже повествование`,
+        content: `Создай детскую сказку по следующим критериям:`,
       },
       {
         role: "user",

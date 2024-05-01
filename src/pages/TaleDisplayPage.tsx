@@ -1,15 +1,16 @@
 import React from "react";
 import TaleDisplay from "../components/TaleDisplay/TaleDisplay";
-import { text, title } from "../components/test";
-import image from "../assets/images/image_1(test).jpg";
+import { useTale } from "../components/Context/TaleContext";
 
 const TaleDisplayPage: React.FC = () => {
+  const {tale} = useTale();
+
   return (
     <>
       <TaleDisplay
-        title={title}
-        text={text}
-        image={image}
+        title={tale.title}
+        text={tale.text}
+        image={tale.imageUrl}
       />
     </>
   );

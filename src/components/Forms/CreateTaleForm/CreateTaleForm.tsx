@@ -8,6 +8,7 @@ import {
 } from "../../../utils/createTaleValidate";
 import { fetchTaleFromOpenAI } from "../../../services/openaiServiceText";
 import { fetchImagesFromOpenAI } from "../../../services/openaiServiceImages";
+import { useTale } from "../../Context/TaleContext";
 
 interface FormData {
   theme: string;
@@ -41,7 +42,9 @@ const CreateTaleForm: React.FC<CreateTaleFormProps> = ({ onSubmit }) => {
     illustrations: false,
   });
 
-  const [imageURLs, setImageURLs] = useState<string[]>([]);
+  const { tale, setTale } = useTale();
+  // const [generatedTale, setGeneratedTale] = useState<string>("");
+  // const [imageURL, setImageURL] = useState<string>("");
 
   const handleChange = (
     event: React.ChangeEvent<
@@ -87,19 +90,23 @@ const CreateTaleForm: React.FC<CreateTaleFormProps> = ({ onSubmit }) => {
         const taleText = await fetchTaleFromOpenAI(formData);
         console.log("Сгенерированная сказка:", taleText);
 
+        let imageUrl = "";
         if (formData.illustrations) {
-          console.log('я выбрал генерацию с изображениями')
+          console.log("я выбрал генерацию с изображениями");
           try {
-            const imagesURLs = await fetchImagesFromOpenAI(formData);
-            setImageURLs(imageURLs);
-            console.log("Generated images:", imagesURLs);
-            // Здесь можно обработать URL изображений, например, показать их пользователю или интегрировать в PDF
+            imageUrl = await fetchImagesFromOpenAI(formData);
+            console.log("Generated images:", imageUrl);
           } catch (imageError) {
             console.error("Error fetching images:", imageError);
           }
         }
-        // Здесь можете вызвать функцию для генерации PDF с taleText
-        onSubmit(formData); // Если нужно передать данные выше или дополнительно обработать
+
+        setTale({
+          title: formData.theme,
+          text: taleText,
+          imageUrl: imageUrl,
+        });
+        // onSubmit(formData); // Если нужно передать данные выше или дополнительно обработать
       } catch (error) {
         console.error("Ошибка при получении сказки:", error);
       }
@@ -115,7 +122,7 @@ const CreateTaleForm: React.FC<CreateTaleFormProps> = ({ onSubmit }) => {
             name="theme"
             value={formData.theme}
             onChange={handleChange}
-            placeholder="Например, спасение королевства от дракона или путешествие на море."
+            placeholder="Представьте, что Вы придумываете название сказки."
             rows={3}
             className="create-tale__input"
           />
@@ -208,16 +215,6 @@ const CreateTaleForm: React.FC<CreateTaleFormProps> = ({ onSubmit }) => {
             label="Добавить иллюстрации к сказке"
           />
         </label>
-      </div>
-      <div>
-        {imageURLs.map((url, index) => (
-          <img
-            key={index}
-            src={url}
-            alt="Generated illustration"
-            style={{ width: "100%", marginBottom: "10px" }}
-          />
-        ))}
       </div>
       <Button
         type="submit"
