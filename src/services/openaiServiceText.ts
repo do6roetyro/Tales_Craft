@@ -41,14 +41,14 @@ export async function fetchTaleFromOpenAI(formData: FormData): Promise<string> {
     messages: [
       {
         role: "system",
-        content: `Создай детскую сказку с названием по следующим критериям:`,
+        content: `Создай детскую сказку по следующим критериям. Текст должен начинаться с названия в кавычках и далее уже повествование`,
       },
       {
         role: "user",
         content: `Тема: ${formData.theme}, Герои: ${formData.heroes}, Окружение: ${formData.environment}, Возраст ребенка: ${formData.age}, Дополнительно: ${formData.additional}`,
       },
     ],
-    model: "gpt-3.5-turbo", // Указываем модель явно, если это необходимо
+    model: "gpt-4-turbo", // Указываем модель явно, если это необходимо
     max_tokens: 1024,
     temperature: 0.7,
   };

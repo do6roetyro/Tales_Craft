@@ -22,9 +22,9 @@
 .tale-display__image {
     margin: 0 auto;
     width: 200px;
-    width: clamp(200px, 40vw, 400px);
+    width: clamp(240px, 60vw, 1024px);
     height: 200px;
-    height: clamp(200px, 40vw, 400px);
+    height: clamp(240px, 60vw, 1024px);
     margin-top: 1rem;
     margin-bottom: 1rem;
 }

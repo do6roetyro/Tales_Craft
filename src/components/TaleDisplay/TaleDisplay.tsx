@@ -4,53 +4,28 @@ import ButtonToMainPage from "../ButtonToMainPage";
 
 interface TaleDisplayProps {
   title: string;
-  text1: string;
-  text2: string;
-  text3: string;
-  image_1?: string;
-  image_2?: string;
+  text: string;
+  image?: string;
 }
 
-const TaleDisplay: React.FC<TaleDisplayProps> = ({
-  title,
-  text1,
-  text2,
-  text3,
-  image_1,
-  image_2,
-}) => {
+const TaleDisplay: React.FC<TaleDisplayProps> = ({ title, text, image }) => {
   return (
     <section className="tale-display">
       <div className="tale-display__wrapper wrapper">
         <h2 className="tale-display__title title">{title}</h2>
         <div className="tale-display__container">
           <p className="tale-display__main-text tale-display__main-text--first description">
-            {text1}
+            {text}
           </p>
-          {image_1 && (
+          {image && (
             <img
-              src={image_1}
+              src={image}
               alt="иллюстрация №1 к сказке"
               className="tale-display__image tale-display__image--first"
-              width={250}
-              height={250}
+              width={1024}
+              height={1024}
             />
           )}
-          <p className="tale-display__main-text tale-display__main-text--second description">
-            {text2}
-          </p>
-          {image_2 && (
-            <img
-              src={image_2}
-              alt="иллюстрация №2 к сказке"
-              className="tale-display__image tale-display__image--second"
-              width={250}
-              height={250}
-            />
-          )}
-          <p className="tale-display__main-text tale-display__main-text--third description">
-            {text3}
-          </p>
         </div>
         <TaleDisplayOptionButtons />
         <ButtonToMainPage />
