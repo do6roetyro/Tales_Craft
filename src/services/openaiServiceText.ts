@@ -40,11 +40,11 @@ export async function fetchTaleFromOpenAI(formData: FormData): Promise<string> {
   const requestBody = {
     messages: [
       {
-        role: "system", 
+        role: "system",
         content: `Создай детскую сказку с названием по следующим критериям:`,
       },
       {
-        role: "user", 
+        role: "user",
         content: `Тема: ${formData.theme}, Герои: ${formData.heroes}, Окружение: ${formData.environment}, Возраст ребенка: ${formData.age}, Дополнительно: ${formData.additional}`,
       },
     ],
@@ -63,16 +63,16 @@ export async function fetchTaleFromOpenAI(formData: FormData): Promise<string> {
   };
 
   try {
-    const data = await fetchWithRetry(OPENAI_API_URL, requestOptions);
-    console.log("Ответ OpenAI:", data);
-    if (data.errors) {
+    const response = await fetchWithRetry(OPENAI_API_URL, requestOptions);
+    console.log("Ответ OpenAI:", response);
+    if (response.errors) {
       throw new Error(
-        `API error: ${data.errors
+        `API error: ${response.errors
           .map((error: OpenAIError) => error.message)
           .join(", ")}`
       );
     }
-    return data.choices[0].message.content; // Получение содержимого сообщения
+    return response.choices[0].message.content; // Получение содержимого сообщения
   } catch (error) {
     console.error("Ошибка при запросе к OpenAI:", error);
     throw error;

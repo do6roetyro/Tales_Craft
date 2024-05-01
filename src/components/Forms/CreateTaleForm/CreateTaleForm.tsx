@@ -6,7 +6,8 @@ import {
   validateAge,
   validateTextLength,
 } from "../../../utils/createTaleValidate";
-import { fetchTaleFromOpenAI } from "../../../services/openaiService";
+import { fetchTaleFromOpenAI } from "../../../services/openaiServiceText";
+import { fetchImagesFromOpenAI } from "../../../services/openaiServiceImages";
 
 interface FormData {
   theme: string;
@@ -40,6 +41,8 @@ const CreateTaleForm: React.FC<CreateTaleFormProps> = ({ onSubmit }) => {
     illustrations: false,
   });
 
+  const [imageURLs, setImageURLs] = useState<string[]>([]);
+
   const handleChange = (
     event: React.ChangeEvent<
       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
@@ -63,7 +66,7 @@ const CreateTaleForm: React.FC<CreateTaleFormProps> = ({ onSubmit }) => {
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
-console.log('я отправилась')
+    console.log("я отправилась");
     const errors = {
       theme: validateTextLength(formData.theme),
       heroes: validateTextLength(formData.heroes),
@@ -79,9 +82,22 @@ console.log('я отправилась')
       .filter((error) => typeof error === "string")
       .every((error) => error === "");
     if (noErrors) {
+      console.log("всё ок - ошибок нет");
       try {
         const taleText = await fetchTaleFromOpenAI(formData);
         console.log("Сгенерированная сказка:", taleText);
+
+        if (formData.illustrations) {
+          console.log('я выбрал генерацию с изображениями')
+          try {
+            const imagesURLs = await fetchImagesFromOpenAI(formData);
+            setImageURLs(imageURLs);
+            console.log("Generated images:", imagesURLs);
+            // Здесь можно обработать URL изображений, например, показать их пользователю или интегрировать в PDF
+          } catch (imageError) {
+            console.error("Error fetching images:", imageError);
+          }
+        }
         // Здесь можете вызвать функцию для генерации PDF с taleText
         onSubmit(formData); // Если нужно передать данные выше или дополнительно обработать
       } catch (error) {
@@ -192,6 +208,16 @@ console.log('я отправилась')
             label="Добавить иллюстрации к сказке"
           />
         </label>
+      </div>
+      <div>
+        {imageURLs.map((url, index) => (
+          <img
+            key={index}
+            src={url}
+            alt="Generated illustration"
+            style={{ width: "100%", marginBottom: "10px" }}
+          />
+        ))}
       </div>
       <Button
         type="submit"
