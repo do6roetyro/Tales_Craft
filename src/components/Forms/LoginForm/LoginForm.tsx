@@ -4,8 +4,6 @@ import Button from "@mui/material/Button";
 
 const LoginForm: React.FC = () => {
   return (
-    <div className="modal__login login">
-    <h2 className="login__title title">Введите данные пользователя:</h2>
     <form className="login__form">
       <input
         type="text"
@@ -32,7 +30,6 @@ const LoginForm: React.FC = () => {
            Войти
         </Button>
     </form>
-    </div>
   );
 };
 

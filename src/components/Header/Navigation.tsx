@@ -36,12 +36,18 @@ const Navigation: React.FC<NavigationProps> = ({
       <NavLink to="/" className={({ isActive }) => getNavLinkClass(isActive)}>
         {homeLinkText}
       </NavLink>
-      <button
+      {/* <button
         onClick={onLoginClick}
         className="main-nav__link main-nav__link--button button"
       >
         {loginLinkText}
-      </button>
+      </button> */}
+      <NavLink
+        to="/login"
+        className={({ isActive }) => getNavLinkClass(isActive)}
+      >
+        {loginLinkText}
+      </NavLink>
       <NavLink
         to="/registration"
         className={({ isActive }) => getNavLinkClass(isActive)}

@@ -1,28 +1,53 @@
+@use "../global/variables.scss";
+
+.login {
+    padding: 1rem;
+
+    @media (min-width: variables.$screen-tablet) {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+}
+
+.login__wrapper {
+    border-radius: 0.5rem;
+    box-shadow: 0 0.25rem 0.4rem rgba(0, 0, 0, 0.4);
+    background-color: #ffffff;
+    padding: 1.5rem;
+    padding-top: 2rem;
+    padding-left: clamp(1.5rem, 5vw, 2.5rem);
+    padding-right: clamp(1.5rem, 5vw, 2.5rem);
+    width: clamp(288px, 71.6vw, 512px);
+}
+
+
 .login__title {
-    color: #000000;
-    padding-bottom: 0.5rem;
-    position: relative;
-    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    padding-top: 0;
+    text-align: center;
 }
 
 .login__form {
     display: flex;
     flex-direction: column;
-    align-items: center;
     row-gap: 1rem;
+   
+    align-items: center;
 }
 
 .login__input {
+    font-family: monospace;
     width: 100%;
     padding: 0.5rem;
     border: 1px solid;
     border-radius: 0.25rem;
-    color: black;
+    color: #000000;
 }
 
-.login__button {
+.login button {
     width: 100%;
     max-width: 13rem;
-    display: flex;
+    margin-left: auto;
+    margin-right: auto;
     margin-top: 1rem;
 }

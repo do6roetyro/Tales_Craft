@@ -9,6 +9,7 @@ import TaleDisplayPage from "./pages/TaleDisplayPage";
 import LibraryPage from "./pages/LibraryPage";
 import Footer from "./components/Footer/Footer";
 import "./assets/styles/index.scss";
+import LoginPage from "./pages/LoginPage";
 
 // import { NavLink } from "react-router-dom";
 
@@ -31,6 +32,7 @@ function App() {
           <Route path="/create" element={<CreateTaleFormPage />} />
           <Route path="/tale" element={<TaleDisplayPage />} />
           <Route path="/lib" element={<LibraryPage />} />
+          <Route path="/login" element={<LoginPage />} />
         </Routes>
         {/* <NavLink to="/tale" className='test'></NavLink> */}
       </main>

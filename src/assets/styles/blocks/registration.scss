@@ -10,14 +10,19 @@
 }
 
 .registration__wrapper {
-    box-shadow: 0 0.25rem 0.4rem rgba(0, 0, 0, 0.4); 
-    // backdrop-filter: blur(10px);
+    border-radius: 0.5rem;
+    box-shadow: 0 0.25rem 0.4rem rgba(0, 0, 0, 0.4);
     background-color: #ffffff;
-    border-radius: 0.5rem; 
+    padding: 1.5rem;
+    padding-top: 2rem;
+    padding-left: clamp(1.5rem, 5vw, 2.5rem);
+    padding-right: clamp(1.5rem, 5vw, 2.5rem);
+    width: clamp(288px, 71.6vw, 512px);
 }
 
 .registration__title {
-    padding: 1rem;
+    padding-bottom: 1.5rem;
+    padding-top: 0;
     text-align: center;
 }
 
@@ -25,7 +30,6 @@
     display: flex;
     flex-direction: column;
     row-gap: 1rem;
-    padding: 1rem;
     align-items: center;
 }
 
@@ -55,10 +59,6 @@
     font-size: 0.875rem;
 }
 
-.registration__button {
-    width: 100%;
-    max-width: 13rem;
-    margin-left: auto;
-    margin-right: auto;
+.registration button {
     margin-top: 1rem;
 }
