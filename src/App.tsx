@@ -10,7 +10,7 @@ import LibraryPage from "./pages/LibraryPage";
 import Footer from "./components/Footer/Footer";
 import "./assets/styles/index.scss";
 
-import { NavLink } from "react-router-dom";
+// import { NavLink } from "react-router-dom";
 
 function App() {
   return (
@@ -32,7 +32,7 @@ function App() {
           <Route path="/tale" element={<TaleDisplayPage />} />
           <Route path="/lib" element={<LibraryPage />} />
         </Routes>
-        <NavLink to="/tale" className='test'></NavLink>
+        {/* <NavLink to="/tale" className='test'></NavLink> */}
       </main>
       <Footer
         aboutLinkText="О Приложении"

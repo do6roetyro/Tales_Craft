@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { useTale } from "../../Context/TaleContext";
+import { useNavigate } from "react-router-dom";
 import Checkbox from "@mui/material/Checkbox";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Button from "@mui/material/Button";
@@ -8,7 +10,6 @@ import {
 } from "../../../utils/createTaleValidate";
 import { fetchTaleFromOpenAI } from "../../../services/openaiServiceText";
 import { fetchImagesFromOpenAI } from "../../../services/openaiServiceImages";
-import { useTale } from "../../Context/TaleContext";
 
 interface FormData {
   theme: string;
@@ -42,7 +43,8 @@ const CreateTaleForm: React.FC<CreateTaleFormProps> = ({ onSubmit }) => {
     illustrations: false,
   });
 
-  const { tale, setTale } = useTale();
+  const { setTale } = useTale();
+  const navigate = useNavigate();
   // const [generatedTale, setGeneratedTale] = useState<string>("");
   // const [imageURL, setImageURL] = useState<string>("");
 
@@ -106,6 +108,8 @@ const CreateTaleForm: React.FC<CreateTaleFormProps> = ({ onSubmit }) => {
           text: taleText,
           imageUrl: imageUrl,
         });
+
+        navigate('/tale')
         // onSubmit(formData); // Если нужно передать данные выше или дополнительно обработать
       } catch (error) {
         console.error("Ошибка при получении сказки:", error);
