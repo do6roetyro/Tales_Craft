@@ -1,4 +1,5 @@
 import React from "react";
+import ButtonToMainPage from "../components/ButtonToMainPage";
 
 const AboutPage: React.FC = () => {
   return (
@@ -30,6 +31,7 @@ const AboutPage: React.FC = () => {
           вместе с любимыми. Начните своё путешествие — вдохните жизнь в свои
           мечты сегодня!
         </p>
+        <ButtonToMainPage />
       </div>
     </section>
   );

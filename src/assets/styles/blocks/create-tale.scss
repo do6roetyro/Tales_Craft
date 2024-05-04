@@ -2,6 +2,7 @@
 
 .create-tale {
     padding: 1rem;
+    padding-bottom: 4rem;
 
     @media (min-width: variables.$screen-tablet) {
         padding-left: 2rem;
@@ -60,7 +61,7 @@
 }
 
 .create-tale__checkbox + span {
-    font-family: variables.$font-ptsans;
+    font-family: variables.$font-ibm;
 }
 
 .create-tale__error {
