@@ -11,8 +11,6 @@ import Footer from "./components/Footer/Footer";
 import "./assets/styles/index.scss";
 import LoginPage from "./pages/LoginPage";
 
-// import { NavLink } from "react-router-dom";
-
 function App() {
   return (
     <React.Fragment>
@@ -25,6 +23,7 @@ function App() {
         libraryLinkText="Библиотека"
       />
       <main className="main-container">
+        <h1 className="visually-hidden">Tales Craft - мастерская по созданию сказок</h1>
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />
@@ -34,10 +33,9 @@ function App() {
           <Route path="/lib" element={<LibraryPage />} />
           <Route path="/login" element={<LoginPage />} />
         </Routes>
-        {/* <NavLink to="/tale" className='test'></NavLink> */}
       </main>
       <Footer
-        aboutLinkText="О Приложении"
+        aboutLinkText="О Нас"
         supportLinkText="Поддержать разработчика"
         copyrightText="© Tales Craft"
       />

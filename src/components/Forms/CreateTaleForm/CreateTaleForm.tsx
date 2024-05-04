@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useTale } from "../../Context/TaleContext";
 import { useNavigate } from "react-router-dom";
 import Checkbox from "@mui/material/Checkbox";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Button from "@mui/material/Button";
+import { CircularProgress } from "@mui/material";
 import {
   validateAge,
   validateTextLength,
@@ -43,10 +44,10 @@ const CreateTaleForm: React.FC<CreateTaleFormProps> = ({ onSubmit }) => {
     illustrations: false,
   });
 
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+
   const { setTale } = useTale();
   const navigate = useNavigate();
-  // const [generatedTale, setGeneratedTale] = useState<string>("");
-  // const [imageURL, setImageURL] = useState<string>("");
 
   const handleChange = (
     event: React.ChangeEvent<
@@ -71,7 +72,8 @@ const CreateTaleForm: React.FC<CreateTaleFormProps> = ({ onSubmit }) => {
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
-    console.log("я отправилась");
+    setIsLoading(true);
+    console.log("Запрос сформирован");
     const errors = {
       theme: validateTextLength(formData.theme),
       heroes: validateTextLength(formData.heroes),
@@ -87,19 +89,22 @@ const CreateTaleForm: React.FC<CreateTaleFormProps> = ({ onSubmit }) => {
       .filter((error) => typeof error === "string")
       .every((error) => error === "");
     if (noErrors) {
-      console.log("всё ок - ошибок нет");
+      console.log("Запрос прошёл валидацию");
       try {
         const taleText = await fetchTaleFromOpenAI(formData);
         console.log("Сгенерированная сказка:", taleText);
 
         let imageUrl = "";
         if (formData.illustrations) {
-          console.log("я выбрал генерацию с изображениями");
+          console.log("Выбрана генерация сказки с иллюстрациями");
           try {
             imageUrl = await fetchImagesFromOpenAI(formData);
-            console.log("Generated images:", imageUrl);
+            console.log("URL иллюстрации:", imageUrl);
           } catch (imageError) {
-            console.error("Error fetching images:", imageError);
+            console.error(
+              "Произошла ошибка во время запроса получения иллюстрации:",
+              imageError
+            );
           }
         }
 
@@ -109,18 +114,40 @@ const CreateTaleForm: React.FC<CreateTaleFormProps> = ({ onSubmit }) => {
           imageUrl: imageUrl,
         });
 
-        navigate('/tale')
+        navigate("/tale");
         // onSubmit(formData); // Если нужно передать данные выше или дополнительно обработать
       } catch (error) {
-        console.error("Ошибка при получении сказки:", error);
+        console.error("Ошибка при исполнении запроса:", error);
+      } finally {
+        setIsLoading(false);
       }
+    } else {
+      setIsLoading(false);
     }
   };
+
+  useEffect(() => {
+    const body = document.body;
+    if (isLoading) {
+      body.classList.add("no-scroll");
+    } else {
+      body.classList.remove("no-scroll");
+    }
+    return () => {
+      body.classList.remove("no-scroll");
+    };
+  }, [isLoading]);
+
   return (
     <form onSubmit={handleSubmit} className="create-tale__form">
+      {isLoading && (
+        <div className="create-tale__loader">
+          <CircularProgress size={60} thickness={4.5} className="loader" />
+        </div>
+      )}
       <div className="create-tale__container">
         <label className="create-tale__label" aria-label="Основная тема">
-          <span className="create-tale__description">Основная тема:</span>
+          <span className="create-tale__description">Основная тема *</span>
           <textarea
             id="theme"
             name="theme"
@@ -129,6 +156,8 @@ const CreateTaleForm: React.FC<CreateTaleFormProps> = ({ onSubmit }) => {
             placeholder="Представьте, что Вы придумываете название сказки."
             rows={3}
             className="create-tale__input"
+            disabled={isLoading}
+            required
           />
         </label>
         {formErrors.theme && (
@@ -137,7 +166,7 @@ const CreateTaleForm: React.FC<CreateTaleFormProps> = ({ onSubmit }) => {
       </div>
       <div className="create-tale__container">
         <label aria-label="Герои сказки">
-          <span className="create-tale__description">Герои сказки:</span>
+          <span className="create-tale__description">Герои сказки *</span>
           <textarea
             id="heroes"
             name="heroes"
@@ -146,6 +175,8 @@ const CreateTaleForm: React.FC<CreateTaleFormProps> = ({ onSubmit }) => {
             placeholder="Например, волшебники или машинки или лесные звери."
             rows={3}
             className="create-tale__input"
+            disabled={isLoading}
+            required
           />
         </label>
         {formErrors.heroes && (
@@ -154,7 +185,7 @@ const CreateTaleForm: React.FC<CreateTaleFormProps> = ({ onSubmit }) => {
       </div>
       <div className="create-tale__container">
         <label aria-label="Окружение">
-          <span className="create-tale__description">Окружение:</span>
+          <span className="create-tale__description">Окружение *</span>
           <textarea
             id="environment"
             name="environment"
@@ -163,6 +194,8 @@ const CreateTaleForm: React.FC<CreateTaleFormProps> = ({ onSubmit }) => {
             placeholder="Например, дремучий лес или бабушкина дача или бескрайняя пустыня."
             rows={3}
             className="create-tale__input"
+            disabled={isLoading}
+            required
           />
         </label>
         {formErrors.environment && (
@@ -171,7 +204,7 @@ const CreateTaleForm: React.FC<CreateTaleFormProps> = ({ onSubmit }) => {
       </div>
       <div className="create-tale__container">
         <label aria-label="Возраст ребенка">
-          <span className="create-tale__description">Возраст ребенка:</span>
+          <span className="create-tale__description">Возраст ребенка *</span>
           <input
             type="number"
             name="age"
@@ -180,6 +213,8 @@ const CreateTaleForm: React.FC<CreateTaleFormProps> = ({ onSubmit }) => {
             onChange={handleChange}
             placeholder="Введите возраст от 0 до 17 лет"
             className="create-tale__input"
+            disabled={isLoading}
+            required
           />
         </label>
         {formErrors.age && (
@@ -188,7 +223,7 @@ const CreateTaleForm: React.FC<CreateTaleFormProps> = ({ onSubmit }) => {
       </div>
       <div className="create-tale__container">
         <label aria-label="Дополнительная информация">
-          <span className="create-tale__description">Дополнительно:</span>
+          <span className="create-tale__description">Дополнительно</span>
           <textarea
             name="additional"
             id="additional"
@@ -197,6 +232,7 @@ const CreateTaleForm: React.FC<CreateTaleFormProps> = ({ onSubmit }) => {
             placeholder="Любая дополнительная информация"
             rows={3}
             className="create-tale__input"
+            disabled={isLoading}
           />
         </label>
         {formErrors.additional && (
@@ -214,6 +250,7 @@ const CreateTaleForm: React.FC<CreateTaleFormProps> = ({ onSubmit }) => {
                 id="illustrations"
                 color="primary"
                 className="create-tale__checkbox"
+                disabled={isLoading}
               />
             }
             label="Добавить иллюстрации к сказке"
@@ -225,6 +262,7 @@ const CreateTaleForm: React.FC<CreateTaleFormProps> = ({ onSubmit }) => {
         variant="contained"
         color="primary"
         className="create-tale__button button"
+        disabled={isLoading}
       >
         Создать сказку
       </Button>
