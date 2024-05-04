@@ -10,6 +10,9 @@ import LibraryPage from "./pages/LibraryPage";
 import Footer from "./components/Footer/Footer";
 import "./assets/styles/index.scss";
 import LoginPage from "./pages/LoginPage";
+import Tale1 from "./components/Tales/Tale1";
+import Tale2 from "./components/Tales/Tale2";
+import Tale3 from "./components/Tales/Tale3";
 
 function App() {
   return (
@@ -32,6 +35,9 @@ function App() {
           <Route path="/tale" element={<TaleDisplayPage />} />
           <Route path="/lib" element={<LibraryPage />} />
           <Route path="/login" element={<LoginPage />} />
+          <Route path="/tale1" element={<Tale1 />} />
+          <Route path="/tale2" element={<Tale2 />} />
+          <Route path="/tale3" element={<Tale3 />} />
         </Routes>
       </main>
       <Footer

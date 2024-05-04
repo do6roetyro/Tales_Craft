@@ -23,19 +23,29 @@
 .library__list {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    list-style-type: decimal;
+    padding-left: 2rem;
 }
 
-.library__item {
-    &:not(:last-child) {
-        border-bottom: 1px solid #000;
-    }
-}
+// .library__item {
+//     &:not(:last-child) {
+//         border-bottom: 1px solid #000;
+//     }
+
+
+// }
 
 .library__link {
     display: block;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
+    padding-left: 1rem;
+    width: fit-content;
+
+    &:hover {
+        text-decoration: underline;
+        text-underline-offset: 2px;
+    }
 }
 
 .library__title {

@@ -1,6 +1,6 @@
 import React from "react";
 import TaleDisplayOptionButtons from "./TaleDisplayOptionButtons";
-import ButtonToMainPage from "../ButtonToMainPage";
+import ButtonToMainPage from "../ButtonToLibraryPage";
 import splitTextIntoParagraphs from "../../utils/SplitTextIntoParagraphs";
 
 interface TaleDisplayProps {
@@ -22,9 +22,6 @@ const TaleDisplay: React.FC<TaleDisplayProps> = ({ title, text, image }) => {
               {paragraph}
             </p>
           ))}
-          {/* <p className="tale-display__main-text description">
-            {text}
-          </p> */}
           {image && (
             <img
               src={image}

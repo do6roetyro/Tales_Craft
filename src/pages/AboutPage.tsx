@@ -1,5 +1,5 @@
 import React from "react";
-import ButtonToMainPage from "../components/ButtonToMainPage";
+import ButtonToMainPage from "../components/ButtonToLibraryPage";
 
 const AboutPage: React.FC = () => {
   return (
