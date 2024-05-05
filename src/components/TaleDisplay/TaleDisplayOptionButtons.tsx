@@ -3,6 +3,7 @@ import printLogo from "../../assets/images/print.svg";
 import saveLogo from "../../assets/images/save.svg";
 import shareLogo from "../../assets/images/share.svg";
 import savePdf from "../../utils/savePdf";
+import sharePdf from "../../utils/sharePdf";
 
 interface TaleDisplayOptionButtonsProps {
   title: string;
@@ -16,7 +17,7 @@ return (
     <button
       type="button"
       className="tale-display__button tale-display__button--save button"
-      onClick={() => savePdf(title, text, image)}
+      onClick={() => savePdf(title, text, image, 'save')}
     >
       <img src={saveLogo} alt="Сохранить" width={32} height={32} />
       <span className="visually-hidden">Сохранить</span>
@@ -31,6 +32,7 @@ return (
     <button
       type="button"
       className="tale-display__button tale-display__button--share button"
+      onClick={() => sharePdf(title, text, image)}
     >
       <img src={shareLogo} alt="Поделиться" width={32} height={32} />
       <span className="visually-hidden">Поделиться</span>
