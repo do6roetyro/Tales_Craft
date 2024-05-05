@@ -16,7 +16,6 @@ const PAGE_WIDTH = 210; // Общая ширина страницы A4 в мил
 const TEXT_WIDTH = 190; // Максимальная ширина текстового блока, определяет, как длинные строки будут переноситься
 const NEW_PAGE_TOP_MARGIN = 10; // Отступ сверху для новой страницы при добавлении текста или изображения
 
-//TODO - изображения не проходят CORS политику. ХЗ чё делать. mode cors не помогает.
 const savePdf = async (title, text, imageSrc, action = 'save') => {
     console.log("Saving PDF...");
     const doc = new jsPDF();
@@ -42,13 +41,15 @@ const savePdf = async (title, text, imageSrc, action = 'save') => {
     });
 
     if (imageSrc) {
+        const proxiedImageSrc = `http://localhost:8080/${imageSrc}`;
+
         if (cursorY + IMAGE_HEIGHT > MAX_PAGE_HEIGHT) {
             doc.addPage();
             cursorY = NEW_PAGE_TOP_MARGIN;
         }
 
         try {
-            const response = await fetch(imageSrc, { mode: 'cors'});
+            const response = await fetch(proxiedImageSrc);
             const blob = await response.blob();
             const reader = new FileReader();
             console.log(reader)
@@ -77,7 +78,7 @@ const savePdf = async (title, text, imageSrc, action = 'save') => {
         }
     }
 
-    if (action === 'save') {
+    if (action === 'save' && !imageSrc) {
         doc.save('tale.pdf');
     } else if (action === 'share') {
         return doc.output('blob')
