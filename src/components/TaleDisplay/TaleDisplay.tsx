@@ -1,7 +1,7 @@
 import React from "react";
 import TaleDisplayOptionButtons from "./TaleDisplayOptionButtons";
 import ButtonToMainPage from "../ButtonToLibraryPage";
-import splitTextIntoParagraphs from "../../utils/SplitTextIntoParagraphs";
+import splitTextIntoParagraphs from "../../utils/splitTextIntoParagraphs";
 
 interface TaleDisplayProps {
   title: string;
@@ -17,7 +17,7 @@ const TaleDisplay: React.FC<TaleDisplayProps> = ({ title, text, image }) => {
       <div className="tale-display__wrapper wrapper">
         <h2 className="tale-display__title title">{title}</h2>
         <div className="tale-display__container">
-          {paragraphs.map((paragraph, index) => (
+          {paragraphs.map((paragraph : string, index : number) => (
             <p key={index} className="tale-display__main-text description">
               {paragraph}
             </p>
@@ -32,7 +32,7 @@ const TaleDisplay: React.FC<TaleDisplayProps> = ({ title, text, image }) => {
             />
           )}
         </div>
-        <TaleDisplayOptionButtons />
+        <TaleDisplayOptionButtons title={title} text={text} image={image} />
         <ButtonToMainPage />
       </div>
     </section>

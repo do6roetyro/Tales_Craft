@@ -1,8 +1,8 @@
 const MIN_PASSWORD_LENGTH = 7;
 
 const validateEmail = (email: string): string => {
-  const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return re.test(email.toLowerCase())
+  const regexpToValidateEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return regexpToValidateEmail.test(email.toLowerCase())
     ? ""
     : "Введите корректный email (например, username@mailbox.com).";
 };

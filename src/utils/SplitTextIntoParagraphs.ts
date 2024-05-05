@@ -1,11 +1,6 @@
-export default function splitTextIntoParagraphs(
-  text: string,
-  amountOfParagraphs: number
-): string[] {
+const splitTextIntoParagraphs = (text: string, amountOfParagraphs: number): string[] => {
   const sentences = text.match(/[^\.!\?]+[\.!\?]+/g) || [];
-  const sentencesPerParagraph = Math.ceil(
-    sentences.length / amountOfParagraphs
-  );
+  const sentencesPerParagraph = Math.ceil(sentences.length / amountOfParagraphs);
   const paragraphs: string[] = [];
 
   for (let i = 0; i < amountOfParagraphs; i++) {
@@ -18,4 +13,6 @@ export default function splitTextIntoParagraphs(
   }
 
   return paragraphs;
-}
+};
+
+export default splitTextIntoParagraphs;
