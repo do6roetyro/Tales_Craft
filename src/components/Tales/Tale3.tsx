@@ -1,6 +1,6 @@
 import React from "react";
-import ButtonToMainPage from "../ButtonToMainPage";
-import ButtonToLibraryPage from "../ButtonToLibraryPage";
+import ButtonToMainPage from "../Buttons/ButtonToMainPage";
+import ButtonToLibraryPage from "../Buttons/ButtonToLibraryPage";
 import img from "../../assets/images/earphones.webp";
 
 const Tale3: React.FC = () => {

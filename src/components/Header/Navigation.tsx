@@ -19,7 +19,6 @@ const Navigation: React.FC<NavigationProps> = ({
   aboutLinkText,
   createTaleLinkText,
   libraryLinkText,
-  onLoginClick,
   vertical = false,
 }) => {
   const navigationClass = vertical
@@ -36,12 +35,6 @@ const Navigation: React.FC<NavigationProps> = ({
       <NavLink to="/" className={({ isActive }) => getNavLinkClass(isActive)}>
         {homeLinkText}
       </NavLink>
-      {/* <button
-        onClick={onLoginClick}
-        className="main-nav__link main-nav__link--button button"
-      >
-        {loginLinkText}
-      </button> */}
       <NavLink
         to="/login"
         className={({ isActive }) => getNavLinkClass(isActive)}
