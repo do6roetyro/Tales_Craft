@@ -35,7 +35,7 @@
     row-gap: 1rem;
     
     align-items: center;
-    padding-bottom: 2rem;
+    padding-bottom: 1rem;
 }
 
 .create-tale__container {
@@ -81,14 +81,18 @@
 .create-tale__info {
     margin: 0 auto;
     width: fit-content;
+    text-align: center;
     padding-bottom: 1rem;
 }
 
 .create-tale__link{
     display: inline;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    color: #42aaff;
+    transition: opacity 0.3s;
     &:hover {
-        text-decoration: underline;
-        text-underline-offset: 2px;
+        opacity: 0.5;
     }
 }
 
