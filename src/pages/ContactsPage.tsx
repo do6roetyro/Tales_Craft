@@ -9,7 +9,7 @@ const ContactsPage: React.FC = () => {
   return (
     <section className="contacts">
       <div className="contacts__wrapper  wrapper">
-        <h2 className="contacts__title title">Мои контакты</h2>
+        <h2 className="contacts__title title">Контакты</h2>
         <ul className="contacts__list list">
           <li className="contacts__item">
             <ContactLink
