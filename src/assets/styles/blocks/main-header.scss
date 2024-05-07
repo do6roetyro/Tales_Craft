@@ -36,7 +36,7 @@
 }
 
 .main-header__menu-button {
-    @media (min-width: 768px) {
+    @media (min-width: variables.$screen-tablet) {
         display: none !important;
     }
 }

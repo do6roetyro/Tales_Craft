@@ -22,6 +22,10 @@
             gap: 1.5rem;
             padding-right: 1rem;
         }
+
+        @media (min-width: variables.$screen-desktop) {
+            gap: 2.5rem;
+        }
     }
 }
 

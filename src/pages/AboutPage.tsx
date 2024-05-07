@@ -7,7 +7,6 @@ const AboutPage: React.FC = () => {
     <section className="about">
       <div className="about__wrapper  wrapper">
         <h2 className="about__title title">
-          {" "}
           Добро пожаловать в мир сказочного творчества!
         </h2>
         <p className="about__description description">

@@ -54,10 +54,10 @@ const Footer: React.FC<FooterProps> = ({
           </li>
         </ul>
         <nav className="main-footer__nav footer-nav">
-          <Link to="/about" className="footer-nav__link link">
+          <Link to="/instruction" className="footer-nav__link link">
             {aboutLinkText}
           </Link>
-          <Link to="/support" className="footer-nav__link link">
+          <Link to="/contacts" className="footer-nav__link link">
             {supportLinkText}
           </Link>
         </nav>

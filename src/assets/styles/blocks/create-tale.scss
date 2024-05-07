@@ -35,11 +35,12 @@
     row-gap: 1rem;
     
     align-items: center;
+    padding-bottom: 2rem;
 }
 
 .create-tale__container {
     width: 100%;
-    max-width: 28rem;
+    max-width: 35rem;
 }
 
 .create-tale__label {
@@ -77,6 +78,20 @@
     margin-top: 1rem;
 }
 
+.create-tale__info {
+    margin: 0 auto;
+    width: fit-content;
+    padding-bottom: 1rem;
+}
+
+.create-tale__link{
+    display: inline;
+    &:hover {
+        text-decoration: underline;
+        text-underline-offset: 2px;
+    }
+}
+
 .create-tale__loader {
     position: fixed;
     top: 0;
@@ -88,4 +103,9 @@
     align-items: center;
     justify-content: center;
     z-index: 1000;
+}
+
+.create-tale__buttons-container {
+    display: flex;
+    gap: 0.5rem;
 }

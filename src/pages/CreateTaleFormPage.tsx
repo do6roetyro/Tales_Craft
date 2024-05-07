@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import CreateTaleForm from "../components/Forms/CreateTaleForm/CreateTaleForm";
 
 const CreateTaleFormPage: React.FC = () => {
@@ -14,6 +15,13 @@ const CreateTaleFormPage: React.FC = () => {
         <p className="create-tale__title title">
           Сделайте первый шаг навстречу сказочному путешествию:
         </p>
+        <p className="create-tale__info description">
+          Прежде чем приступать - прочтите&nbsp;
+          <Link to="/instruction" className=" create-tale__link link">
+            <b>инструкцию</b>
+          </Link>
+        </p>
+
         <CreateTaleForm onSubmit={handleFormSubmit} />
       </div>
     </section>

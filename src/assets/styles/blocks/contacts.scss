@@ -1,0 +1,53 @@
+@use "../global/variables.scss";
+
+.contacts {
+    padding: 1rem;
+    padding-bottom: 4rem;
+
+    @media (min-width: variables.$screen-tablet) {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+}
+
+.contacts__wrapper {
+    border-radius: 0.5rem;
+    box-shadow: 0 0.25rem 0.4rem rgba(0, 0, 0, 0.4);
+    background-color: #ffffff;
+    padding: 1.5rem;
+    padding-top: 2rem;
+    padding-left: clamp(1rem, 5vw, 2.5rem);
+    padding-right: clamp(1rem, 5vw, 2.5rem);
+    max-width: 22rem;
+}
+
+.contacts__list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    align-items: center;
+    
+   
+    gap: 1rem;
+    text-wrap: pretty;
+}
+
+.contacts__link {
+    display: inline;
+    &:hover {
+        text-decoration: underline;
+        text-underline-offset: 2px;
+    }
+}
+
+.contacts__title {
+    padding-bottom: 2rem;
+    text-align: center;
+    font-size: clamp(1.5rem, 5vw, 2rem);
+    line-height: clamp(1.5rem, 5vw, 2rem);
+}
+
+.contacts__logo {
+    object-fit: contain;
+    object-position: center;
+}

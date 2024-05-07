@@ -15,7 +15,7 @@ const ButtonToLibraryPage: React.FC = () => {
         type="button"
         variant="contained"
         color="primary"
-        className="tale-display__button tale-display__button--close button"
+        className="tale-display__button tale-display__button--main button"
         onClick={handleNavigate}
       >
         Вернуться в библиотеку

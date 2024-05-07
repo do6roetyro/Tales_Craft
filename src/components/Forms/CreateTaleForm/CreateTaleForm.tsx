@@ -3,7 +3,6 @@ import { useTale } from "../../Context/TaleContext";
 import { useNavigate } from "react-router-dom";
 import Checkbox from "@mui/material/Checkbox";
 import FormControlLabel from "@mui/material/FormControlLabel";
-import Button from "@mui/material/Button";
 import { CircularProgress } from "@mui/material";
 import {
   validateAge,
@@ -11,6 +10,7 @@ import {
 } from "../../../utils/createTaleValidate";
 import { fetchTaleFromOpenAI } from "../../../services/openaiServiceText";
 import { fetchImagesFromOpenAI } from "../../../services/openaiServiceImages";
+import CreateTaleButton from "../../Buttons/CreateTaleButton";
 
 interface FormData {
   theme: string;
@@ -257,15 +257,7 @@ const CreateTaleForm: React.FC<CreateTaleFormProps> = ({ onSubmit }) => {
           />
         </label>
       </div>
-      <Button
-        type="submit"
-        variant="contained"
-        color="primary"
-        className="create-tale__button button"
-        disabled={isLoading}
-      >
-        Создать сказку
-      </Button>
+      <CreateTaleButton isLoading={isLoading} />
     </form>
   );
 };
