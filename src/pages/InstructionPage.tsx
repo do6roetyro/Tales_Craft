@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import ContactsPage from "./ContactsPage";
 
 const InstructionPage: React.FC = () => {
   return (
@@ -36,13 +35,18 @@ const InstructionPage: React.FC = () => {
           </li>
           <li className="instruction__item">
             Также обращаю внимание, что, я - разработчик приложения, не несу
-            ответственности за созданный контент. Запрещено использовать данное
-            приложение для создания контента для несовершеннолетних.
+            ответственности за созданный контент.
+          </li>
+          <li className="instruction__item">
+            Запрещено использовать данное приложение для создания контента для
+            несовершеннолетних.
           </li>
           <li className="instruction__item">
             Если Вы хотите связаться со мной, оставить отзыв о приложении,
             отблагодарить, поругать, предложить сотрудничество - &nbsp;
-            <Link to="/contacts" className="instruction__link link"><b>свяжитесь со мной</b></Link>
+            <Link to="/contacts" className="instruction__link link">
+              <b>свяжитесь со мной</b>
+            </Link>
           </li>
         </ul>
       </div>

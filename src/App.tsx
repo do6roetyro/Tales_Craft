@@ -1,6 +1,8 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
+import "./assets/styles/index.scss";
 import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
 import RegistrationPage from "./pages/RegistrationPage";
@@ -10,8 +12,6 @@ import LibraryPage from "./pages/LibraryPage";
 import LoginPage from "./pages/LoginPage";
 import InstructionPage from "./pages/InstructionPage";
 import ContactsPage from "./pages/ContactsPage";
-import Footer from "./components/Footer/Footer";
-import "./assets/styles/index.scss";
 import Tale1 from "./components/Tales/Tale1";
 import Tale2 from "./components/Tales/Tale2";
 import Tale3 from "./components/Tales/Tale3";
