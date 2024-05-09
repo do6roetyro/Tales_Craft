@@ -4,8 +4,10 @@
 }
 
 .copyright__link {
-    &:hover {
-        ation: underline;
-        text-underline-offset: 2px;
+    @media (hover: hover) and (pointer: fine) {
+        &:hover {
+            ation: underline;
+            text-underline-offset: 2px;
+        }
     }
 }

@@ -4,17 +4,16 @@
     align-items: center;
 }
 
-
 .social__link {
     &--github .social__logo {
         position: relative;
         bottom: 3px;
     }
-
-    &:hover {
-        opacity: 0.5;
+    @media (hover: hover) and (pointer: fine) {
+        &:hover {
+            opacity: 0.5;
+        }
     }
-    
 }
 
 .social__logo {

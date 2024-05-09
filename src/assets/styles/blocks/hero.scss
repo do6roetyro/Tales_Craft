@@ -57,7 +57,9 @@
     max-width: 350px;
     margin: 0 auto;
 
-    &:hover {
-        background-color: #3182ce;
+    @media (hover: hover) and (pointer: fine) {
+        &:hover {
+            background-color: #3182ce;
+        }
     }
 }

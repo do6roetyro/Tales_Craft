@@ -40,8 +40,10 @@
     text-underline-offset: 2px;
     color: #42aaff;
     transition: opacity 0.3s;
-    &:hover {
-        opacity: 0.5;
+    @media (hover: hover) and (pointer: fine) {
+        &:hover {
+            opacity: 0.5;
+        }
     }
 }
 

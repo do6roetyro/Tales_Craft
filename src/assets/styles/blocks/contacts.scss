@@ -26,17 +26,18 @@
     grid-template-columns: 1fr 1fr;
     justify-items: center;
     align-items: center;
-    
-   
+
     gap: 1rem;
     text-wrap: pretty;
 }
 
 .contacts__link {
     display: inline;
-    &:hover {
-        text-decoration: underline;
-        text-underline-offset: 2px;
+    @media (hover: hover) and (pointer: fine) {
+        &:hover {
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
     }
 }
 

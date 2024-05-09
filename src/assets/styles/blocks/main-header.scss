@@ -23,16 +23,15 @@
 .main-header__logo-image {
     object-fit: cover;
     width: 6rem;
-    height: 6rem; 
-    transition: transform 300ms ease-in-out; 
-    transform: scale(1); 
+    height: 6rem;
+    transition: transform 300ms ease-in-out;
+    transform: scale(1);
 }
-
-.main-header__logo-image:hover,
-.main-header__logo-image:focus {
-    transform: scale(
-        1.1
-    ); 
+@media (hover: hover) and (pointer: fine) {
+    .main-header__logo-image:hover,
+    .main-header__logo-image:focus {
+        transform: scale(1.1);
+    }
 }
 
 .main-header__menu-button {

@@ -40,15 +40,16 @@
         font-family: variables.$font-ibm;
     }
 
-    &:hover {
-        color: #607d9a;
-    }
+    @media (hover: hover) and (pointer: fine) {
+        &:hover {
+            color: #607d9a;
+        }
 
-    &--active {
-        color: #607d9a; /* Зеленый цвет для активных ссылок */
-        font-weight: bold;
-        text-decoration: underline;
-        text-underline-offset: 4px;
-
+        &--active {
+            color: #607d9a;
+            font-weight: bold;
+            text-decoration: underline;
+            text-underline-offset: 4px;
+        }
     }
 }

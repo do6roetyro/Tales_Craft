@@ -1,20 +1,21 @@
-import React from "react";
+import React, { Suspense, lazy } from "react";
 import { Routes, Route } from "react-router-dom";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import "./assets/styles/index.scss";
-import HomePage from "./pages/HomePage";
-import AboutPage from "./pages/AboutPage";
-import RegistrationPage from "./pages/RegistrationPage";
-import CreateTaleFormPage from "./pages/CreateTaleFormPage";
-import TaleDisplayPage from "./pages/TaleDisplayPage";
-import LibraryPage from "./pages/LibraryPage";
-import LoginPage from "./pages/LoginPage";
-import InstructionPage from "./pages/InstructionPage";
-import ContactsPage from "./pages/ContactsPage";
-import Tale1 from "./components/Tales/Tale1";
-import Tale2 from "./components/Tales/Tale2";
-import Tale3 from "./components/Tales/Tale3";
+
+const HomePage = lazy(() => import("./pages/HomePage"));
+const AboutPage = lazy(() => import("./pages/AboutPage"));
+const RegistrationPage = lazy(() => import("./pages/RegistrationPage"));
+const CreateTaleFormPage = lazy(() => import("./pages/CreateTaleFormPage"));
+const TaleDisplayPage = lazy(() => import("./pages/TaleDisplayPage"));
+const LibraryPage = lazy(() => import("./pages/LibraryPage"));
+const LoginPage = lazy(() => import("./pages/LoginPage"));
+const InstructionPage = lazy(() => import("./pages/InstructionPage"));
+const ContactsPage = lazy(() => import("./pages/ContactsPage"));
+const Tale1 = lazy(() => import("./components/Tales/Tale1"));
+const Tale2 = lazy(() => import("./components/Tales/Tale2"));
+const Tale3 = lazy(() => import("./components/Tales/Tale3"));
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
       />
       <main className="main-container">
         <h1 className="visually-hidden">Tales Craft - мастерская по созданию сказок</h1>
+        <Suspense fallback={<div>Loading...</div>}>
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />
@@ -43,6 +45,7 @@ function App() {
           <Route path="/tale2" element={<Tale2 />} />
           <Route path="/tale3" element={<Tale3 />} />
         </Routes>
+        </Suspense>
       </main>
       <Footer
         aboutLinkText="О Приложении"
