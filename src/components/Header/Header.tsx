@@ -44,6 +44,7 @@ const Header: React.FC<HeaderProps> = ({
   const closeLoginModal = () => setLoginModalOpen(false);
 
   return (
+    <div className="page__wrapper">
     <header className="main-header">
       <Logo />
       <IconButton
@@ -88,6 +89,7 @@ const Header: React.FC<HeaderProps> = ({
         <LoginForm />
       </Modal>
     </header>
+    </div>
   );
 };
 

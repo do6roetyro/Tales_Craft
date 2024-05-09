@@ -16,6 +16,7 @@ const Footer: React.FC<FooterProps> = ({
 }) => {
   return (
     <footer className="main-footer">
+      <div className="page__wrapper">
       <div className="main-footer__container">
         <ul className="social list">
           <li className="social__item">
@@ -73,6 +74,7 @@ const Footer: React.FC<FooterProps> = ({
         >
           Разработано dobroeytro
         </a>
+      </div>
       </div>
     </footer>
   );

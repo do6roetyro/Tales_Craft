@@ -10,7 +10,7 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <TaleProvider>
-      <Router>
+      <Router>  
         <App />
       </Router>
     </TaleProvider>

@@ -28,6 +28,7 @@ function App() {
         createTaleLinkText="Создать сказку"
         libraryLinkText="Библиотека"
       />
+      <div className="page__wrapper">
       <main className="main-container">
         <h1 className="visually-hidden">Tales Craft - мастерская по созданию сказок</h1>
         <Suspense fallback={<div>Loading...</div>}>
@@ -47,6 +48,7 @@ function App() {
         </Routes>
         </Suspense>
       </main>
+      </div>
       <Footer
         aboutLinkText="О Приложении"
         supportLinkText="Связаться с разработчиком"
