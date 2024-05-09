@@ -4,6 +4,7 @@
     padding-left: 1rem;
     padding-right: 1rem;
     padding-bottom: 4rem;
+    min-height: 100vh;
 
     @media (min-width: variables.$screen-tablet) {
         padding-left: 2rem;
@@ -21,6 +22,11 @@
     background-color: #ffffff;
 }
 
+.about__container {
+    display: flex;
+    justify-content: center;
+}
+
 .about__title {
     text-align: center;
     padding-bottom: 2rem;
@@ -34,4 +40,8 @@
     text-wrap: pretty;
     font-size: clamp(1rem, 4vw, 1.5rem);
     line-height: clamp(1rem, 7vw, 2rem);
+
+    &:last-of-type {
+        padding-bottom: 2rem;
+    }
 }

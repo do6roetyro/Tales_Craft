@@ -1,4 +1,5 @@
 import React from "react";
+import stripPrefixLink from "../../utils/stripPrefixLink";
 
 interface ContactLinkProps {
   name: string;
@@ -7,6 +8,7 @@ interface ContactLinkProps {
 }
 
 const ContactLink: React.FC<ContactLinkProps> = ({ name, link, logo }) => {
+  const strippedlink = stripPrefixLink(link);
   return (
     <a
       className="contacts__link link"
@@ -14,8 +16,16 @@ const ContactLink: React.FC<ContactLinkProps> = ({ name, link, logo }) => {
       href={link}
       rel="noreferrer"
     >
-        <img className="contacts__logo" src={logo} alt={`Логотип соцсети ${name}`}  width={64} height={64}/>
-     
+      <div className="contacts__container">
+        <img
+          className="contacts__logo"
+          src={logo}
+          alt={`Логотип соцсети ${name}`}
+          width={64}
+          height={64}
+        />
+        <span className="contacts__text">{strippedlink}</span>
+      </div>
     </a>
   );
 };

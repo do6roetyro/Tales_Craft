@@ -6,7 +6,7 @@
 .copyright__link {
     @media (hover: hover) and (pointer: fine) {
         &:hover {
-            ation: underline;
+            text-decoration: underline;
             text-underline-offset: 2px;
         }
     }

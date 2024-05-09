@@ -31,7 +31,9 @@ const AboutPage: React.FC = () => {
           вместе с любимыми. Начните своё путешествие — вдохните жизнь в свои
           мечты сегодня!
         </p>
+        <div className="about__container">
         <ButtonToMainPage />
+        </div>
       </div>
     </section>
   );

@@ -22,17 +22,21 @@
 }
 
 .contacts__list {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    justify-items: center;
-    align-items: center;
+    display: flex;
+    flex-direction: column;
 
     gap: 1rem;
     text-wrap: pretty;
 }
 
+.contacts__container {
+    display: flex;
+    gap: 1rem;
+}
+
 .contacts__link {
     display: inline;
+    
     @media (hover: hover) and (pointer: fine) {
         &:hover {
             text-decoration: underline;
@@ -51,4 +55,6 @@
 .contacts__logo {
     object-fit: contain;
     object-position: center;
+    width: 2rem;
+    height: 2rem;
 }

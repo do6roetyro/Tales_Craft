@@ -18,6 +18,8 @@ const Tale2 = lazy(() => import("./components/Tales/Tale2"));
 const Tale3 = lazy(() => import("./components/Tales/Tale3"));
 
 function App() {
+
+
   return (
     <React.Fragment>
       <Header
@@ -31,7 +33,8 @@ function App() {
       <div className="page__wrapper">
       <main className="main-container">
         <h1 className="visually-hidden">Tales Craft - мастерская по созданию сказок</h1>
-        <Suspense fallback={<div>Loading...</div>}>
+        <div className="test">
+        <Suspense fallback={<div className="suspense-load"></div>}>
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />
@@ -47,6 +50,7 @@ function App() {
           <Route path="/tale3" element={<Tale3 />} />
         </Routes>
         </Suspense>
+        </div>
       </main>
       </div>
       <Footer
