@@ -41,7 +41,7 @@ const savePdf = async (title, text, imageSrc, action = 'save') => {
     });
 
     if (imageSrc) {
-        const proxiedImageSrc = `http://localhost:8080/${imageSrc}`;
+        // const proxiedImageSrc = `http://localhost:8080/${imageSrc}`;
 
         if (cursorY + IMAGE_HEIGHT > MAX_PAGE_HEIGHT) {
             doc.addPage();
@@ -49,7 +49,7 @@ const savePdf = async (title, text, imageSrc, action = 'save') => {
         }
 
         try {
-            const response = await fetch(proxiedImageSrc);
+            const response = await fetch(imageSrc);
             const blob = await response.blob();
             const reader = new FileReader();
             console.log(reader)

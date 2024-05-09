@@ -49,16 +49,28 @@
 
 .create-tale__description {
     display: block;
-    padding-bottom: 0.5rem;
+    padding-bottom: 1rem;
+
+    font-size: clamp(1rem, 4vw, 1.5rem);
+    line-height: clamp(1rem, 4vw, 1.5rem);
 }
 
 .create-tale__input {
     font-family: monospace;
     width: 100%;
     padding: 0.5rem;
+    
+  
     border: 1px solid;
     border-radius: 0.25rem;
+    font-size: clamp(0.5rem, 4vw, 1rem);
+    line-height: clamp(0.5rem, 4vw, 1rem);
     color: #000000;
+
+    @media(min-width: variables.$screen-tablet) {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
 }
 
 .create-tale__checkbox + span {

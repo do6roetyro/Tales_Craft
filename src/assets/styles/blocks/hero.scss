@@ -21,6 +21,11 @@
     width: clamp(288px, 71.6vw, variables.$screen-desktop);
     padding: 1.5rem;
     background-color: #ffffff;
+
+    @media(min-width: variables.$screen-tablet) {
+        padding: 2rem;
+        padding-bottom: 2.5rem;
+    }
 }
 
 .hero__image {
@@ -43,6 +48,10 @@
     padding-bottom: 2rem;
     font-size: clamp(1rem, 3vw, 2rem);
     line-height: clamp(1rem, 4vw, 2.5rem);
+
+    @media(min-width: variables.$screen-tablet) {
+        padding-bottom: 4rem;
+    }
 }
 
 .hero__link {
