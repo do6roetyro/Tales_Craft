@@ -41,8 +41,6 @@ const savePdf = async (title, text, imageSrc, action = 'save') => {
     });
 
     if (imageSrc) {
-        // const proxiedImageSrc = `http://localhost:8080/${imageSrc}`;
-
         if (cursorY + IMAGE_HEIGHT > MAX_PAGE_HEIGHT) {
             doc.addPage();
             cursorY = NEW_PAGE_TOP_MARGIN;
@@ -50,31 +48,10 @@ const savePdf = async (title, text, imageSrc, action = 'save') => {
 
         try {
             const response = await fetch(imageSrc);
-            const blob = await response.blob();
-            const reader = new FileReader();
-            console.log(reader)
-
-            reader.onload = () => {
-                const imageData = reader.result;
-                if (imageData && imageData.startsWith('data:image/png')) { // Проверка на правильный Data URL
-                    try {
-                        doc.addImage(imageData, 'PNG', IMAGE_X, cursorY, IMAGE_WIDTH, IMAGE_HEIGHT);
-                        doc.save('tale.pdf');
-                    } catch (error) {
-                        console.error("Error adding image to PDF:", error);
-                    }
-                } else {
-                    console.error("Invalid or corrupt image data.");
-                }
-            };
-
-            reader.onerror = () => {
-                console.error("Error reading the image blob.");
-            };
-
-            reader.readAsDataURL(blob);
+            const imageData = await response.arrayBuffer();
+            doc.addImage(imageData, 'PNG', IMAGE_X, cursorY, IMAGE_WIDTH, IMAGE_HEIGHT);
         } catch (error) {
-            console.error("Failed to fetch the image:", error);
+            console.error("Failed to fetch or add the image:", error);
         }
     }
 
@@ -83,6 +60,50 @@ const savePdf = async (title, text, imageSrc, action = 'save') => {
     } else if (action === 'share') {
         return doc.output('blob')
     }
+
+    // if (imageSrc) {
+    //     // const proxiedImageSrc = `http://localhost:8080/${imageSrc}`;
+
+    //     if (cursorY + IMAGE_HEIGHT > MAX_PAGE_HEIGHT) {
+    //         doc.addPage();
+    //         cursorY = NEW_PAGE_TOP_MARGIN;
+    //     }
+
+    //     try {
+    //         const response = await fetch(imageSrc);
+    //         const blob = await response.blob();
+    //         const reader = new FileReader();
+    //         console.log(reader)
+
+    //         reader.onload = () => {
+    //             const imageData = reader.result;
+    //             if (imageData && imageData.startsWith('data:image/png')) { // Проверка на правильный Data URL
+    //                 try {
+    //                     doc.addImage(imageData, 'PNG', IMAGE_X, cursorY, IMAGE_WIDTH, IMAGE_HEIGHT);
+    //                     doc.save('tale.pdf');
+    //                 } catch (error) {
+    //                     console.error("Error adding image to PDF:", error);
+    //                 }
+    //             } else {
+    //                 console.error("Invalid or corrupt image data.");
+    //             }
+    //         };
+
+    //         reader.onerror = () => {
+    //             console.error("Error reading the image blob.");
+    //         };
+
+    //         reader.readAsDataURL(blob);
+    //     } catch (error) {
+    //         console.error("Failed to fetch the image:", error);
+    //     }
+    // }
+
+    // if (action === 'save' && !imageSrc) {
+    //     doc.save('tale.pdf');
+    // } else if (action === 'share') {
+    //     return doc.output('blob')
+    // }
 
 };
 
