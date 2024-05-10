@@ -1,7 +1,7 @@
 import React from "react";
 import SaveButton from "../Buttons/SaveButton";
-import ButtonToMainPage from "../Buttons/ButtonToMainPage";
 import splitTextIntoParagraphs from "../../utils/splitTextIntoParagraphs";
+import ButtonToMainPage from "../Buttons/ButtonToMainPage";
 
 interface TaleDisplayProps {
   title: string;
