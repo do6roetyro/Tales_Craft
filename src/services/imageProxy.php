@@ -2,12 +2,13 @@
 // Проверяем, получили ли мы URL изображения в запросе
 if(isset($_GET['imageSrc'])) {
     // Получаем URL изображения из запроса
-
     $imageSrc = $_GET['imageSrc'];
 
     // Устанавливаем заголовки, чтобы разрешить доступ к изображению с любого источника
     header("Access-Control-Allow-Origin: *");
     header("Access-Control-Allow-Methods: GET");
+
+    error_log("Requested image source: $imageSrc");
 
     // Запрашиваем изображение с удаленного сервера
     $image = file_get_contents($imageSrc);
