@@ -1,4 +1,4 @@
-const splitTextIntoParagraphs = (text: string, amountOfParagraphs: number): string[] => {
+const splitTextIntoParagraphs_1 = (text: string, amountOfParagraphs: number): string[] => {
   const sentences = text.match(/[^\.!\?]+[\.!\?]+/g) || [];
   const sentencesPerParagraph = Math.ceil(sentences.length / amountOfParagraphs);
   const paragraphs: string[] = [];
@@ -15,4 +15,4 @@ const splitTextIntoParagraphs = (text: string, amountOfParagraphs: number): stri
   return paragraphs;
 };
 
-export default splitTextIntoParagraphs;
+export default splitTextIntoParagraphs_1;
