@@ -11,7 +11,6 @@ interface TaleDisplayProps {
 
 const TaleDisplay: React.FC<TaleDisplayProps> = ({ title, text, image }) => {
   const paragraphs = splitTextIntoParagraphs(text, 4);
-
   return (
     <section className="tale-display">
       <div className="tale-display__wrapper wrapper">
