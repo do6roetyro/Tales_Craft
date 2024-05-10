@@ -47,7 +47,7 @@ const savePdf = async (title, text, imageSrc, action = 'save') => {
         }
 
         try {
-            const response = await fetch(imageSrc);
+            const response = await fetch(`https://tales-craft.ru/imageProxy.php?imageSrc=${encodeURIComponent(imageSrc)}`);
             const imageData = await response.arrayBuffer();
             doc.addImage(imageData, 'PNG', IMAGE_X, cursorY, IMAGE_WIDTH, IMAGE_HEIGHT);
         } catch (error) {
@@ -61,7 +61,12 @@ const savePdf = async (title, text, imageSrc, action = 'save') => {
         return doc.output('blob')
     }
 
-    // if (imageSrc) {
+};
+
+export default savePdf 
+
+
+  // if (imageSrc) {
     //     // const proxiedImageSrc = `http://localhost:8080/${imageSrc}`;
 
     //     if (cursorY + IMAGE_HEIGHT > MAX_PAGE_HEIGHT) {
@@ -104,7 +109,3 @@ const savePdf = async (title, text, imageSrc, action = 'save') => {
     // } else if (action === 'share') {
     //     return doc.output('blob')
     // }
-
-};
-
-export default savePdf 
