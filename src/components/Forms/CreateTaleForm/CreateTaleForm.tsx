@@ -143,6 +143,7 @@ const CreateTaleForm: React.FC<CreateTaleFormProps> = ({ onSubmit }) => {
       {isLoading && (
         <div className="create-tale__loader">
           <CircularProgress size={60} thickness={4.5} className="loader" />
+          <p>Пожалуйста, подождите 1 - 2 минуты...</p>
         </div>
       )}
       <div className="create-tale__container">
