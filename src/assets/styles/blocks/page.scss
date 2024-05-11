@@ -6,7 +6,7 @@
 }
 
 .page__body {
-    height: 100dvh;
+    // height: 100dvh;
     font-family: variables.$font-ibm;
     font-style: normal;
     font-weight: 400;
@@ -16,6 +16,9 @@
     margin: 0;
     text-wrap: balance;
     min-height: 100%;
+    background-image: url("../../images/background_main.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .page__container {
@@ -24,10 +27,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #ffffff;
-    background-image: url("../../images/background_main.webp");
-    background-repeat: no-repeat;
-    background-size: cover;
+    // background-color: #ffffff;
+    // background-image: url("../../images/background_main.webp");
+    // background-repeat: no-repeat;
+    // background-size: cover;
 }
 
 .page__wrapper {
