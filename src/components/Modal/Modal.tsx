@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from "react";
+import ButtonToMainPage from "../Buttons/ButtonToMainPage";
 
 interface ModalProps {
   children: React.ReactNode;
@@ -35,14 +36,8 @@ const Modal: React.FC<ModalProps> = ({ children, isOpen, onClose }) => {
   return (
     <div className="modal" onClick={handleBackdropClick}>
       <div ref={modalRef} className="modal__container">
-        <button
-          onClick={onClose}
-          className="modal__button modal__button--close"
-        >
-          <span className="visually-hidden">Закрыть</span>
-          &#x2715;
-        </button>
         {children}
+        <ButtonToMainPage />
       </div>
     </div>
   );

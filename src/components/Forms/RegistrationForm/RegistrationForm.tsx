@@ -6,6 +6,7 @@ import {
   validateConfirmPassword,
 } from "../../../utils/registrationValidate";
 import Button from "@mui/material/Button";
+import Modal from "../../Modal/Modal";
 
 interface FormData {
   username: string;
@@ -25,6 +26,8 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({ onSubmit }) => {
     password: "",
     confirmPassword: "",
   });
+
+  const [registrationSuccess, setRegistrationSuccess] = useState(false);
 
   const [formErrors, setFormErrors] = useState<FormData>({
     username: "",
@@ -56,86 +59,97 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({ onSubmit }) => {
 
     const noErrors = Object.values(errors).every((e) => e === "");
     if (noErrors) {
+      setRegistrationSuccess(true);
       onSubmit(formData);
     }
   };
 
   return (
-    <form className="registration__form" onSubmit={handleSubmit}>
-      <div className="registration__container">
-        <label className="registration__label">
-          <input
-            type="text"
-            id="username"
-            name="username"
-            placeholder="Имя пользователя"
-            className="registration__input"
-            autoComplete="off"
-            value={formData.username}
-            onChange={handleChange}
-          />
-        </label>
-        {formErrors.username && (
-          <div className="registration__error">{formErrors.username}</div>
-        )}
-        <label className="registration__label">
-          <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder="Email"
-            className="registration__input"
-            autoComplete="off"
-            value={formData.email}
-            onChange={handleChange}
-          />
-        </label>
-        {formErrors.email && (
-          <div className="registration__error">{formErrors.email}</div>
-        )}
-        <label className="registration__label">
-          <input
-            type="password"
-            id="new-password"
-            name="password"
-            placeholder="Пароль"
-            className="registration__input"
-            autoComplete="off"
-            value={formData.password}
-            onChange={handleChange}
-          />
-        </label>
-        {formErrors.password && (
-          <div className="registration__error">{formErrors.password}</div>
-        )}
-        <label className="registration__label">
-          <input
-            type="password"
-            id="confirm-password"
-            name="confirmPassword"
-            placeholder="Подтверждение пароля"
-            className="registration__input"
-            autoComplete="off"
-            value={formData.confirmPassword}
-            onChange={handleChange}
-          />
-        </label>
-        {formErrors.confirmPassword && (
-          <div className="registration__error">
-            {formErrors.confirmPassword}
-          </div>
-        )}
+    <>
+      <form className="registration__form" onSubmit={handleSubmit}>
+        <div className="registration__container">
+          <label className="registration__label">
+            <input
+              type="text"
+              id="username"
+              name="username"
+              placeholder="Имя пользователя"
+              className="registration__input"
+              autoComplete="off"
+              value={formData.username}
+              onChange={handleChange}
+            />
+          </label>
+          {formErrors.username && (
+            <div className="registration__error">{formErrors.username}</div>
+          )}
+          <label className="registration__label">
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Email"
+              className="registration__input"
+              autoComplete="off"
+              value={formData.email}
+              onChange={handleChange}
+            />
+          </label>
+          {formErrors.email && (
+            <div className="registration__error">{formErrors.email}</div>
+          )}
+          <label className="registration__label">
+            <input
+              type="password"
+              id="new-password"
+              name="password"
+              placeholder="Пароль"
+              className="registration__input"
+              autoComplete="off"
+              value={formData.password}
+              onChange={handleChange}
+            />
+          </label>
+          {formErrors.password && (
+            <div className="registration__error">{formErrors.password}</div>
+          )}
+          <label className="registration__label">
+            <input
+              type="password"
+              id="confirm-password"
+              name="confirmPassword"
+              placeholder="Подтверждение пароля"
+              className="registration__input"
+              autoComplete="off"
+              value={formData.confirmPassword}
+              onChange={handleChange}
+            />
+          </label>
+          {formErrors.confirmPassword && (
+            <div className="registration__error">
+              {formErrors.confirmPassword}
+            </div>
+          )}
 
-        <Button
-          type="submit"
-          variant="contained"
-          color="primary"
-          className="registration__button button"
+          <Button
+            type="submit"
+            variant="contained"
+            color="primary"
+            className="registration__button button"
+          >
+            Зарегистрироваться
+          </Button>
+        </div>
+      </form>
+      {registrationSuccess && (
+        <Modal
+          isOpen={registrationSuccess}
+          onClose={() => setRegistrationSuccess(false)}
         >
-          Зарегистрироваться
-        </Button>
-      </div>
-    </form>
+          <p>Регистрация прошла успешно!</p>
+        </Modal>
+      )}
+    </>
   );
 };
 
