@@ -1,5 +1,5 @@
-import React, { Suspense, lazy } from "react";
-import { Routes, Route } from "react-router-dom";
+import React, { Suspense, lazy, useEffect } from "react";
+import { Routes, Route, useLocation } from "react-router-dom";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import "./assets/styles/index.scss";
@@ -18,7 +18,11 @@ const Tale2 = lazy(() => import("./components/Tales/Tale2"));
 const Tale3 = lazy(() => import("./components/Tales/Tale3"));
 
 function App() {
+  const location = useLocation();
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
 
   return (
     <React.Fragment>
@@ -31,27 +35,29 @@ function App() {
         libraryLinkText="Библиотека"
       />
       <div className="page__wrapper">
-      <main className="main-container">
-        <h1 className="visually-hidden">Tales Craft - мастерская по созданию сказок</h1>
-        <div className="test">
-        <Suspense fallback={<div className="suspense-load"></div>}>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/registration" element={<RegistrationPage />} />
-          <Route path="/create" element={<CreateTaleFormPage />} />
-          <Route path="/tale" element={<TaleDisplayPage />} />
-          <Route path="/lib" element={<LibraryPage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/instruction" element={<InstructionPage />} />
-          <Route path="/contacts" element={<ContactsPage />} />
-          <Route path="/tale1" element={<Tale1 />} />
-          <Route path="/tale2" element={<Tale2 />} />
-          <Route path="/tale3" element={<Tale3 />} />
-        </Routes>
-        </Suspense>
-        </div>
-      </main>
+        <main className="main-container">
+          <h1 className="visually-hidden">
+            Tales Craft - мастерская по созданию сказок
+          </h1>
+          <div className="test">
+            <Suspense fallback={<div className="suspense-load"></div>}>
+              <Routes>
+                <Route path="/" element={<HomePage />} />
+                <Route path="/about" element={<AboutPage />} />
+                <Route path="/registration" element={<RegistrationPage />} />
+                <Route path="/create" element={<CreateTaleFormPage />} />
+                <Route path="/tale" element={<TaleDisplayPage />} />
+                <Route path="/lib" element={<LibraryPage />} />
+                <Route path="/login" element={<LoginPage />} />
+                <Route path="/instruction" element={<InstructionPage />} />
+                <Route path="/contacts" element={<ContactsPage />} />
+                <Route path="/tale1" element={<Tale1 />} />
+                <Route path="/tale2" element={<Tale2 />} />
+                <Route path="/tale3" element={<Tale3 />} />
+              </Routes>
+            </Suspense>
+          </div>
+        </main>
       </div>
       <Footer
         aboutLinkText="О Приложении"
