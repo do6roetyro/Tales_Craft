@@ -1,50 +1,57 @@
-<<<<<<< HEAD
-# Getting Started with Create React App
+# Tales-Craft
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Tales-Craft - это веб-приложение, созданное для генерации детских сказок с использованием API OpenAI. Приложение написано на TypeScript и использует библиотеку React для пользовательского интерфейса.
 
-## Available Scripts
+Посетите [Tales-Craft](https://tales-craft.ru/) для просмотра приложения в действии.
 
-In the project directory, you can run:
+## Установка
 
-### `npm start`
+Для запуска приложения локально выполните следующие шаги:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+1. Убедитесь, что у вас установлен Node.js и npm.
+2. Склонируйте репозиторий с помощью команды `git clone`.
+3. Перейдите в каталог проекта и выполните `npm install` для установки зависимостей.
+4. Запустите приложение с помощью `npm start`.
+5. Откройте ваш браузер и перейдите по адресу `http://localhost:3000`.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Использование
 
-### `npm test`
+Tales-Craft предоставляет пользователю возможность создавать уникальные детские сказки. Для этого:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Перейдите на страницу "Создать сказку".
+2. Заполните форму с указанием заголовка сказки, её содержания и, при необходимости, изображения.
+3. Активируйте VPN на Вашем устройстве.
+4. Нажмите кнопку "Создать", чтобы получить сгенерированную сказку.
+5. При желании, вы можете сохранить сказку, чтобы просмотреть её позже в разделе "Библиотека".
 
-### `npm run build`
+## Функциональность
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Генерация уникальных детских сказок с помощью API OpenAI.
+- Возможность сохранения сказок для последующего просмотра.
+- Навигация между страницами с помощью роутинга React Router.
+- Производительность: приложение достигает 70 баллов по метрике производительности Lighthouse.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Технологии
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- TypeScript
+- React
+- React Router
+- OpenAI API
+- SCSS
 
-### `npm run eject`
+## Скриншоты
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+[image.png]
+[image.png]
+[image.png]
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Авторы
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- Мастяев Алексей;
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Контакты
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-=======
-# Tales_Craft
->>>>>>> 863a9397d0ddd7cf9850c92aba9e3a9884eb2419
+- **VK:** [vk.com/go6poeytpo](https://vk.com/go6poeytpo)
+- **Яндекс:** [do6roeytro@yandex.ru](mailto:do6roeytro@yandex.ru)
+- **GMail:** [warm.citrus@gmail.com](mailto:warm.citrus@gmail.com)
+- **Telegram:** [t.me/Do6poeytpo](https://t.me/Do6poeytpo)
