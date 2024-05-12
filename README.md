@@ -41,9 +41,9 @@ Tales-Craft предоставляет пользователю возможно
 
 ## Скриншоты
 
-[image.png]
-[image.png]
-[image.png]
+![Главная страница](./src/assets/images/screenshots/screen_1.jpg)
+![Форма для создания сказки](./src/assets/images/screenshots/screen_2.jpg)
+![Отображение сказки](./src/assets/images/screenshots/screen_3.jpg)
 
 ## Авторы
 
